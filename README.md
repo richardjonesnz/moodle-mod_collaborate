@@ -30,7 +30,7 @@ For newbie users
 You may notice the .gitignore file and a reference to a local class debugging.  This is a simple script that allows you to output debugging information to file.
 
 It looks like this"
-<?php
+
 namespace mod_widget\local;
 
 class debugging {
