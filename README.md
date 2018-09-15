@@ -52,9 +52,9 @@ class debugging {
 Place the above code in a file called debugging.php.
 
 Modify the file location (mylog.log) if desired.  Anywhere you want to view the contents of an object use:
-
+<pre>
 \mod_widget\local\debugging::logit("What is in a widegt: ", $widget);
-
+</pre>
 Using Xdebug
 ============
 Brackets, Sublime, PHP Storm and many other editors or IDEs use this.  If you are using Linux, there's plenty of info to google.
