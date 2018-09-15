@@ -1,0 +1,6 @@
+Template data: stdClass Object
+(
+    [heading] => <h2>Yay, it works!!</h2>
+    [body] => <div class="no-overflow"><p>First test<br></p></div>
+)
+

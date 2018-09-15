@@ -34,16 +34,18 @@ class mod_pairwork_renderer extends plugin_renderer_base {
     /**
      * Returns the main content.
      *
+     * @param $pairwork the pairwork instance std Object
+     * @param $cm the course module std Object
+     * @return $output, text/html to display content
      */
     public function fetch_view_page_content($pairwork, $cm) {
 
-        $output = $this->output->heading($pairwork->title);
-        // Moodle handles processing of std intro field.
-        $output .= $this->output->box(
-                format_module_intro('pairwork', $pairwork,
-                $cm->id), 'generalbox mod_introbox',
-                'pairworkintro');
+        $data = new stdClass();
 
-        return $output;
+        $data->heading = $pairwork->title;
+        // Moodle handles processing of std intro field.
+        $data->body = format_module_intro('pairwork',
+                $pairwork, $cm->id);
+        return $this->render_from_template('mod_pairwork/view', $data);
     }
 }

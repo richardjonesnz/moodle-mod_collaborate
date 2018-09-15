@@ -34,7 +34,8 @@ require_once($CFG->dirroot . '/mod/pairwork/backup/moodle2/backup_pairwork_steps
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+ * @see https://github.com/moodlehq/moodle-mod_newmodule
+ * @see https://github.com/justinhunt/moodle-mod_pairwork */
 class backup_pairwork_activity_task extends backup_activity_task {
 
     /**
