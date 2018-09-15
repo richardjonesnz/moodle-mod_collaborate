@@ -17,23 +17,23 @@
 /**
  * Defines the view event.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork */
+ * @see https://github.com/justinhunt/moodle-mod_widget */
 
-namespace mod_pairwork\event;
+namespace mod_widget\event;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * The mod_pairwork instance viewed event class
+ * The mod_widget instance viewed event class
  *
  * If the view mode needs to be stored as well, you may need to
  * override methods get_url() and get_legacy_log_data(), too.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -43,7 +43,7 @@ class course_module_viewed extends \core\event\course_module_viewed {
      * Initialize the event
      */
     protected function init() {
-        $this->data['objecttable'] = 'pairwork';
+        $this->data['objecttable'] = 'widget';
         parent::init();
     }
 }

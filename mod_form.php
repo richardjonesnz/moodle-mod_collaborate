@@ -15,16 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The main pairwork configuration form
+ * The main widget configuration form
  *
  * It uses the standard core Moodle formslib. For more info about them, please
  * visit: http://docs.moodle.org/en/Development:lib/formslib.php
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork */
+ * @see https://github.com/justinhunt/moodle-mod_widget */
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -33,11 +33,11 @@ require_once($CFG->dirroot.'/course/moodleform_mod.php');
 /**
  * Module instance settings form
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_pairwork_mod_form extends moodleform_mod {
+class mod_widget_mod_form extends moodleform_mod {
 
     /**
      * Defines forms elements
@@ -51,7 +51,7 @@ class mod_pairwork_mod_form extends moodleform_mod {
         $mform->addElement('header', 'general', get_string('general', 'form'));
 
         // Adding the standard "name" field.
-        $mform->addElement('text', 'name', get_string('pairworkname', 'pairwork'), array('size' => '64'));
+        $mform->addElement('text', 'name', get_string('widgetname', 'widget'), array('size' => '64'));
         if (!empty($CFG->formatstringstriptags)) {
             $mform->setType('name', PARAM_TEXT);
         } else {
@@ -59,7 +59,7 @@ class mod_pairwork_mod_form extends moodleform_mod {
         }
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        $mform->addHelpButton('name', 'pairworkname', 'pairwork');
+        $mform->addHelpButton('name', 'widgetname', 'widget');
 
         // Adding the standard "intro" and "introformat" fields.
         if ($CFG->branch >= 29) {
@@ -68,9 +68,9 @@ class mod_pairwork_mod_form extends moodleform_mod {
             $this->add_intro_editor();
         }
 
-        // Add a specific mod_pairwork field - title.
+        // Add a specific mod_widget field - title.
         $mform->addElement('text', 'title',
-                get_string('title', 'mod_pairwork'));
+                get_string('title', 'mod_widget'));
         $mform->setType('title', PARAM_TEXT);
 
         // Add standard grading elements.

@@ -1,6 +1,11 @@
-A module for draft writing/creating in Moodle in real time.  Based on the concept by Justin Hunt in 
-the course Moodle Bites for Developers Level 2.
+A template for Moodle modules.  Updated from Moodle HQ's moodle-mod_NEWMODULE template.
 
-Students work in pairs then compare notes and re-edit as necessary. Optionally a combined draft is 
-produced.  
+Added:
+
+ - Custom renderer
+ - Mustache template
+ - Backup/restore functionality
+
+Instructions for installing:
+
 

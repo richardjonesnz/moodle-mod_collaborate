@@ -20,11 +20,11 @@
  * This file replaces the legacy STATEMENTS section in db/install.xml,
  * lib.php/modulename_install() post installation hook and partially defaults.php.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork
+ * @see https://github.com/justinhunt/moodle-mod_widget
  */
 
 /**
@@ -32,7 +32,7 @@
  *
  * @see upgrade_plugins_modules()
  */
-function xmldb_pairwork_install() {
+function xmldb_widget_install() {
 }
 
 /**
@@ -40,5 +40,5 @@ function xmldb_pairwork_install() {
  *
  * @see upgrade_plugins_modules()
  */
-function xmldb_pairwork_install_recovery() {
+function xmldb_widget_install_recovery() {
 }

@@ -15,25 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the restore steps that will be used by the restore_pairwork_activity_task
+ * Define all the restore steps that will be used by the restore_widget_activity_task
  *
- * @package   mod_pairwork
+ * @package   mod_widget
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork
+ * @see https://github.com/justinhunt/moodle-mod_widget
  */
 
 /**
- * Structure step to restore one pairwork activity
+ * Structure step to restore one widget activity
  *
- * @package   mod_pairwork
+ * @package   mod_widget
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class restore_pairwork_activity_structure_step extends restore_activity_structure_step {
+class restore_widget_activity_structure_step extends restore_activity_structure_step {
 
     /**
      * Defines structure of path elements to be processed during the restore
@@ -43,7 +43,7 @@ class restore_pairwork_activity_structure_step extends restore_activity_structur
     protected function define_structure() {
 
         $paths = array();
-        $paths[] = new restore_path_element('pairwork', '/activity/pairwork');
+        $paths[] = new restore_path_element('widget', '/activity/widget');
 
         // Return the paths wrapped into standard activity structure.
         return $this->prepare_activity_structure($paths);
@@ -54,7 +54,7 @@ class restore_pairwork_activity_structure_step extends restore_activity_structur
      *
      * @param array $data parsed element data
      */
-    protected function process_pairwork($data) {
+    protected function process_widget($data) {
         global $DB;
 
         $data = (object)$data;
@@ -74,8 +74,8 @@ class restore_pairwork_activity_structure_step extends restore_activity_structur
             $data->grade = -($this->get_mappingid('scale', abs($data->grade)));
         }
 
-        // Create the pairwork instance.
-        $newitemid = $DB->insert_record('pairwork', $data);
+        // Create the widget instance.
+        $newitemid = $DB->insert_record('widget', $data);
         $this->apply_activity_instance($newitemid);
     }
 
@@ -83,7 +83,7 @@ class restore_pairwork_activity_structure_step extends restore_activity_structur
      * Post-execution actions
      */
     protected function after_execute() {
-        // Add pairwork related files, no need to match by itemname (just internally handled context).
-        $this->add_related_files('mod_pairwork', 'intro', null);
+        // Add widget related files, no need to match by itemname (just internally handled context).
+        $this->add_related_files('mod_widget', 'intro', null);
     }
 }

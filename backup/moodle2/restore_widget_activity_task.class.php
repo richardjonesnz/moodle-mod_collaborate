@@ -17,29 +17,29 @@
 /**
  * Provides the restore activity task class
  *
- * @package   mod_pairwork
+ * @package   mod_widget
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork
+ * @see https://github.com/justinhunt/moodle-mod_widget
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->dirroot . '/mod/pairwork/backup/moodle2/restore_pairwork_stepslib.php');
+require_once($CFG->dirroot . '/mod/widget/backup/moodle2/restore_widget_stepslib.php');
 
 /**
- * Restore task for the pairwork activity module
+ * Restore task for the widget activity module
  *
  * Provides all the settings and steps to perform complete restore of the activity.
  *
- * @package   mod_pairwork
+ * @package   mod_widget
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class restore_pairwork_activity_task extends restore_activity_task {
+class restore_widget_activity_task extends restore_activity_task {
 
     /**
      * Define (add) particular settings this activity can have
@@ -53,7 +53,7 @@ class restore_pairwork_activity_task extends restore_activity_task {
      */
     protected function define_my_steps() {
         // We have just one structure step here.
-        $this->add_step(new restore_pairwork_activity_structure_step('pairwork_structure', 'pairwork.xml'));
+        $this->add_step(new restore_widget_activity_structure_step('widget_structure', 'widget.xml'));
     }
 
     /**
@@ -63,7 +63,7 @@ class restore_pairwork_activity_task extends restore_activity_task {
     static public function define_decode_contents() {
         $contents = array();
 
-        $contents[] = new restore_decode_content('pairwork', array('intro'), 'pairwork');
+        $contents[] = new restore_decode_content('widget', array('intro'), 'widget');
 
         return $contents;
     }
@@ -75,8 +75,8 @@ class restore_pairwork_activity_task extends restore_activity_task {
     static public function define_decode_rules() {
         $rules = array();
 
-        $rules[] = new restore_decode_rule('pairworkVIEWBYID', '/mod/pairwork/view.php?id=$1', 'course_module');
-        $rules[] = new restore_decode_rule('pairworkINDEX', '/mod/pairwork/index.php?id=$1', 'course');
+        $rules[] = new restore_decode_rule('widgetVIEWBYID', '/mod/widget/view.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('widgetINDEX', '/mod/widget/index.php?id=$1', 'course');
 
         return $rules;
 
@@ -85,15 +85,15 @@ class restore_pairwork_activity_task extends restore_activity_task {
     /**
      * Define the restore log rules that will be applied
      * by the {@link restore_logs_processor} when restoring
-     * pairwork logs. It must return one array
+     * widget logs. It must return one array
      * of {@link restore_log_rule} objects
      */
     static public function define_restore_log_rules() {
         $rules = array();
 
-        $rules[] = new restore_log_rule('pairwork', 'add', 'view.php?id={course_module}', '{pairwork}');
-        $rules[] = new restore_log_rule('pairwork', 'update', 'view.php?id={course_module}', '{pairwork}');
-        $rules[] = new restore_log_rule('pairwork', 'view', 'view.php?id={course_module}', '{pairwork}');
+        $rules[] = new restore_log_rule('widget', 'add', 'view.php?id={course_module}', '{widget}');
+        $rules[] = new restore_log_rule('widget', 'update', 'view.php?id={course_module}', '{widget}');
+        $rules[] = new restore_log_rule('widget', 'view', 'view.php?id={course_module}', '{widget}');
 
         return $rules;
     }
@@ -111,7 +111,7 @@ class restore_pairwork_activity_task extends restore_activity_task {
     static public function define_restore_log_rules_for_course() {
         $rules = array();
 
-        $rules[] = new restore_log_rule('pairwork', 'view all', 'index.php?id={course}', null);
+        $rules[] = new restore_log_rule('widget', 'view all', 'index.php?id={course}', null);
 
         return $rules;
     }

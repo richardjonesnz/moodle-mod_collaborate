@@ -21,31 +21,31 @@
  * @copyright  2018 Richard Jones <richardnz@outlook.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork
+ * @see https://github.com/justinhunt/moodle-mod_widget
  */
-use \mod_pairwork\local\debugging;
+use \mod_widget\local\debugging;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Renderer for Pairwork mod.
+ * Renderer for widget mod.
  */
-class mod_pairwork_renderer extends plugin_renderer_base {
+class mod_widget_renderer extends plugin_renderer_base {
 
     /**
      * Returns the main content.
      *
-     * @param $pairwork the pairwork instance std Object
+     * @param $widget the widget instance std Object
      * @param $cm the course module std Object
      * @return $output, text/html to display content
      */
-    public function fetch_view_page_content($pairwork, $cm) {
+    public function fetch_view_page_content($widget, $cm) {
 
         $data = new stdClass();
 
-        $data->heading = $pairwork->title;
+        $data->heading = $widget->title;
         // Moodle handles processing of std intro field.
-        $data->body = format_module_intro('pairwork',
-                $pairwork, $cm->id);
-        return $this->render_from_template('mod_pairwork/view', $data);
+        $data->body = format_module_intro('widget',
+                $widget, $cm->id);
+        return $this->render_from_template('mod_widget/view', $data);
     }
 }

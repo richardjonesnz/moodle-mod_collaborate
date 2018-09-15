@@ -15,62 +15,69 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Prints a particular instance of pairwork
+ * Prints a particular instance of widget
  *
  * You can have a rather longer description of the file as well,
  * if you like, and it can span multiple lines.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork */
+ * @see https://github.com/justinhunt/moodle-mod_widget */
 
 require_once('../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
-
-$id = optional_param('id', 0, PARAM_INT); // Course_module ID, or
-$n  = optional_param('n', 0, PARAM_INT);  // ... pairwork instance ID - it should be named as the first character of the module.
+// We need the course module id (id) or
+// the widget instance id (n).
+$id = optional_param('id', 0, PARAM_INT);
+$n  = optional_param('n', 0, PARAM_INT);
 
 if ($id) {
-    $cm         = get_coursemodule_from_id('pairwork', $id, 0, false, MUST_EXIST);
-    $course     = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
-    $pairwork  = $DB->get_record('pairwork', array('id' => $cm->instance), '*', MUST_EXIST);
+    $cm = get_coursemodule_from_id('widget', $id, 0, false,
+            MUST_EXIST);
+    $course = $DB->get_record('course',
+            array('id' => $cm->course), '*', MUST_EXIST);
+    $widget = $DB->get_record('widget',
+            array('id' => $cm->instance), '*', MUST_EXIST);
 } else if ($n) {
-    $pairwork  = $DB->get_record('pairwork', array('id' => $n), '*', MUST_EXIST);
-    $course     = $DB->get_record('course', array('id' => $pairwork->course), '*', MUST_EXIST);
-    $cm         = get_coursemodule_from_instance('pairwork', $pairwork->id, $course->id, false, MUST_EXIST);
+    $widget = $DB->get_record('widget', array('id' => $n), '*',
+            MUST_EXIST);
+    $course = $DB->get_record('course',
+            array('id' => $widget->course), '*', MUST_EXIST);
+    $cm = get_coursemodule_from_instance('widget', $widget->id,
+            $course->id, false, MUST_EXIST);
 } else {
     // Moodle Developer debugging called.
-    debugging('Internal error: No course_module ID or instance ID',
+    debugging('Error: No course_module ID or instance ID',
             DEBUG_DEVELOPER);
 }
 
 require_login($course, true, $cm);
 
 // Record the module viewed event for logging.
-$event = \mod_pairwork\event\course_module_viewed::create(array(
+$event = \mod_widget\event\course_module_viewed::create(array(
     'objectid' => $PAGE->cm->instance,
     'context' => $PAGE->context,
 ));
 $event->add_record_snapshot('course', $PAGE->course);
-$event->add_record_snapshot($PAGE->cm->modname, $pairwork);
+$event->add_record_snapshot($PAGE->cm->modname, $widget);
 $event->trigger();
 
 // Print the page header.
-$PAGE->set_url('/mod/pairwork/view.php', array('id' => $cm->id));
-$PAGE->set_title(format_string($pairwork->name));
+$PAGE->set_url('/mod/widget/view.php', array('id' => $cm->id));
+$PAGE->set_title(format_string($widget->name));
 $PAGE->set_heading(format_string($course->fullname));
 
 // The renderer performs output to the page.
-$renderer = $PAGE->get_renderer('mod_pairwork');
+$renderer = $PAGE->get_renderer('mod_widget');
 
 // Check for intro page content.
-if (!$pairwork->intro) {
-    $pairwork->intro = '';
+if (!$widget->intro) {
+    $widget->intro = '';
 }
 // Start the page, call renderer to show content and
 // finish the page.
 echo $OUTPUT->header();
-echo $renderer->fetch_view_page_content($pairwork, $cm);
+echo $renderer->fetch_view_page_content($widget, $cm);
 echo $OUTPUT->footer();

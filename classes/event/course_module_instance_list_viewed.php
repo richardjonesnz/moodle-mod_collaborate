@@ -15,24 +15,24 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * The mod_pairwork instance list viewed event.
+ * The mod_widget instance list viewed event.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace mod_pairwork\event;
+namespace mod_widget\event;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * The mod_pairwork instance list viewed event class.
+ * The mod_widget instance list viewed event class.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork*/
+ * @see https://github.com/justinhunt/moodle-mod_widget*/
 class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {
 }

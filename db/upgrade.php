@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file keeps track of upgrades to the pairwork module
+ * This file keeps track of upgrades to the widget module
  *
  * Sometimes, changes between versions involve alterations to database
  * structures and other major things that may break installations. The upgrade
@@ -24,21 +24,21 @@
  * it cannot do itself, it will tell you what you need to do.  The commands in
  * here will all be database-neutral, using the functions defined in DLL libraries.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork*/
+ * @see https://github.com/justinhunt/moodle-mod_widget*/
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Execute pairwork upgrade from the given old version
+ * Execute widget upgrade from the given old version
  *
  * @param int $oldversion
  * @return bool
  */
-function xmldb_pairwork_upgrade($oldversion) {
+function xmldb_widget_upgrade($oldversion) {
     global $DB;
 
     $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
@@ -46,9 +46,9 @@ function xmldb_pairwork_upgrade($oldversion) {
     // Upgraded to add title field to pairowrk table.
     if ($oldversion < 2018091502) {
 
-        // Define field title to be added to pairwork.
+        // Define field title to be added to widget.
         // After field intro format.
-        $table = new xmldb_table('pairwork');
+        $table = new xmldb_table('widget');
         $field = new xmldb_field('title', XMLDB_TYPE_TEXT,
                 'medium', null, null, null, null,
                 'introformat');
@@ -58,7 +58,7 @@ function xmldb_pairwork_upgrade($oldversion) {
             $dbman->add_field($table, $field);
         }
     }
-    upgrade_mod_savepoint(true, 2018091502, 'pairwork');
+    upgrade_mod_savepoint(true, 2018091502, 'widget');
 
     return true;
 }

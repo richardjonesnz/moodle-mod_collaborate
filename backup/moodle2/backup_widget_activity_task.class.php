@@ -15,29 +15,29 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines backup_pairwork_activity_task class
+ * Defines backup_widget_activity_task class
  *
- * @package   mod_pairwork
+ * @package   mod_widget
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork */
+ * @see https://github.com/justinhunt/moodle-mod_widget */
 
 defined('MOODLE_INTERNAL') || die;
 
-require_once($CFG->dirroot . '/mod/pairwork/backup/moodle2/backup_pairwork_stepslib.php');
+require_once($CFG->dirroot . '/mod/widget/backup/moodle2/backup_widget_stepslib.php');
 
 /**
- * Provides the steps to perform one complete backup of the pairwork instance
+ * Provides the steps to perform one complete backup of the widget instance
  *
- * @package   mod_pairwork
+ * @package   mod_widget
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork */
-class backup_pairwork_activity_task extends backup_activity_task {
+ * @see https://github.com/justinhunt/moodle-mod_widget */
+class backup_widget_activity_task extends backup_activity_task {
 
     /**
      * No specific settings for this activity
@@ -46,10 +46,10 @@ class backup_pairwork_activity_task extends backup_activity_task {
     }
 
     /**
-     * Defines a backup step to store the instance data in the pairwork.xml file
+     * Defines a backup step to store the instance data in the widget.xml file
      */
     protected function define_my_steps() {
-        $this->add_step(new backup_pairwork_activity_structure_step('pairwork_structure', 'pairwork.xml'));
+        $this->add_step(new backup_widget_activity_structure_step('widget_structure', 'widget.xml'));
     }
 
     /**
@@ -63,13 +63,13 @@ class backup_pairwork_activity_task extends backup_activity_task {
 
         $base = preg_quote($CFG->wwwroot, '/');
 
-        // Link to the list of pairworks.
-        $search = '/('.$base.'\/mod\/pairwork\/index.php\?id\=)([0-9]+)/';
-        $content = preg_replace($search, '$@pairworkINDEX*$2@$', $content);
+        // Link to the list of widgets.
+        $search = '/('.$base.'\/mod\/widget\/index.php\?id\=)([0-9]+)/';
+        $content = preg_replace($search, '$@widgetINDEX*$2@$', $content);
 
-        // Link to pairwork view by moduleid.
-        $search = '/('.$base.'\/mod\/pairwork\/view.php\?id\=)([0-9]+)/';
-        $content = preg_replace($search, '$@pairworkVIEWBYID*$2@$', $content);
+        // Link to widget view by moduleid.
+        $search = '/('.$base.'\/mod\/widget\/view.php\?id\=)([0-9]+)/';
+        $content = preg_replace($search, '$@widgetVIEWBYID*$2@$', $content);
 
         return $content;
     }

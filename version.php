@@ -17,16 +17,16 @@
 /**
  * Defines the version and other meta-info about the plugin
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork
+ * @see https://github.com/justinhunt/moodle-mod_widget
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_pairwork';
+$plugin->component = 'mod_widget';
 $plugin->version = 2018091600;
 $plugin->release = 'v1.0'; // Basic activity plugin template.
 $plugin->requires = 2017111301; // Moodle 3.4, 3.5.

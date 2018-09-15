@@ -16,32 +16,32 @@
 
 
 /**
- * English strings for pairwork
+ * English strings for widget
  *
  * You can have a rather longer description of the file as well,
  * if you like, and it can span multiple lines.
  *
- * @package    mod_pairwork
+ * @package    mod_widget
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
- * @see https://github.com/justinhunt/moodle-mod_pairwork
+ * @see https://github.com/justinhunt/moodle-mod_widget
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['modulename'] = 'pairwork';
-$string['modulenameplural'] = 'pairworks';
-$string['modulename_help'] = 'Use the pairwork module for... | The pairwork module allows...';
-$string['pairwork:addinstance'] = 'Add a new pairwork';
-$string['pairwork:submit'] = 'Submit pairwork';
-$string['pairwork:view'] = 'View pairwork';
-$string['pairworkfieldset'] = 'Custom example fieldset';
-$string['pairworkname'] = 'pairwork name';
-$string['pairworkname_help'] = 'This is the content of the help tooltip associated with the pairworkname field. Markdown syntax is supported.';
-$string['pairwork'] = 'pairwork';
-$string['pluginadministration'] = 'pairwork administration';
-$string['pluginname'] = 'pairwork';
+$string['modulename'] = 'widget';
+$string['modulenameplural'] = 'widgets';
+$string['modulename_help'] = 'Use the widget module for... | The widget module allows...';
+$string['widget:addinstance'] = 'Add a new widget';
+$string['widget:submit'] = 'Submit widget';
+$string['widget:view'] = 'View widget';
+$string['widgetfieldset'] = 'Custom example fieldset';
+$string['widgetname'] = 'widget name';
+$string['widgetname_help'] = 'This is the content of the help tooltip associated with the widgetname field. Markdown syntax is supported.';
+$string['widget'] = 'widget';
+$string['pluginadministration'] = 'widget administration';
+$string['pluginname'] = 'widget';
 
-// Mod form specific pairwork settings.
+// Mod form specific widget settings.
 $string['title'] = 'Activity Title: ';

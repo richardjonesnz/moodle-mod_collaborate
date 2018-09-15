@@ -1,4 +1,4 @@
-@mod @mod_pairwork
+@mod @mod_widget
 Feature: Installation succeeds
   In order to use this plugin
   As a user
@@ -9,4 +9,4 @@ Feature: Installation succeeds
     And I navigate to "Plugins overview" node in "Site administration > Plugins"
     Then the following should exist in the "plugins-control-panel" table:
         |Plugin name|
-        |mod_pairwork|
+        |mod_widget|
