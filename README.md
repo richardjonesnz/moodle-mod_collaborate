@@ -4,7 +4,7 @@ Added:
 
  - Custom renderer
  - Mustache template
- - Backup/restore functionality
+ - Working backup/restore functionality for Moodle2
 
 Instructions for installing:
 ============================
@@ -25,8 +25,8 @@ Carry out a search and replace for "widget" replacing it with the name of your n
 
 Navigate to your admin dashboard and install the new module.
 
-For git users (that should be you)
-==================================
+For newbie users
+================
 You may notice the .gitignore file and a reference to a local class debugging.  This is a simple script that allows you to output debugging information to file.
 
 It looks like this"
@@ -56,7 +56,7 @@ Modify the file location (mylog.log) if desired.  Anywhere you want to view the 
 
 Using Xdebug
 ============
-Brackets, Sublime, PHP Storm and many other editors or IDEs use this.
+Brackets, Sublime, PHP Storm and many other editors or IDEs use this.  If you are using Linux, there's plenty of info to google.
 
 Windows users
 =============
@@ -67,3 +67,11 @@ Also install, at minumum, Git for Windows (even if you don't use it - and you sh
 This article is helpful for installing xdebug on xampp:
 https://gist.github.com/odan/1abe76d373a9cbb15bed
 
+Have fun developing for Moodle.  This activity module is an
+example from MoodleBites for Developers level 2.
+
+https://www.moodlebites.com/mod/page/view.php?id=19542
+
+Richard Jones, richardnz@outlook.com
+Karapiro Village, NZ
+September 16th, 2018.
