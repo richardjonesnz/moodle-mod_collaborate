@@ -35,16 +35,14 @@ class mod_pairwork_renderer extends plugin_renderer_base {
      * Returns the main content.
      *
      */
-    public function fetch_page_content($pairwork, $cm) {
+    public function fetch_view_page_content($pairwork, $cm) {
 
-        $output = $this->output->header();
-        $output .= $this->output->heading($pairwork->title);
+        $output = $this->output->heading($pairwork->title);
+        // Moodle handles processing of std intro field.
         $output .= $this->output->box(
-                format_module_intro('pairwork', $pairwork, $cm->id),
-                'generalbox mod_introbox', 'pairworkintro');
-        // Local debug/information/error logging.
-        debugging::logit('Pairwork object: ', $pairwork);
-        debugging::logit('Course module object: ', $cm);
+                format_module_intro('pairwork', $pairwork,
+                $cm->id), 'generalbox mod_introbox',
+                'pairworkintro');
 
         return $output;
     }

@@ -65,13 +65,12 @@ $PAGE->set_heading(format_string($course->fullname));
 // The renderer performs output to the page.
 $renderer = $PAGE->get_renderer('mod_pairwork');
 
-// Check for intro page.
+// Check for intro page content.
 if (!$pairwork->intro) {
     $pairwork->intro = '';
 }
-
-// Call the custom renderer function to show the content.
-echo $renderer->fetch_page_content($pairwork, $cm);
-
-// Finish the page.
+// Start the page, call renderer to show content and
+// finish the page.
+echo $OUTPUT->header();
+echo $renderer->fetch_view_page_content($pairwork, $cm);
 echo $OUTPUT->footer();
