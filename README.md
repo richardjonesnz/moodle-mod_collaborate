@@ -31,11 +31,11 @@ You may notice the .gitignore file and a reference to a local class debugging.  
 
 It looks like this"
 
+<pre>
 namespace mod_widget\local;
 
 class debugging {
     public static function logit($message, $value) {
-        global $CFG;
 
         $file = fopen('mylog.log', 'a');
 
@@ -47,6 +47,7 @@ class debugging {
         }
     }
 }
+</pre>
 
 Place the above code in a file called debugging.php.
 
