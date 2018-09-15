@@ -1,0 +1,277 @@
+Pairwork object: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => First test
+    [intro] => <p>First test<br></p>
+    [introformat] => 1
+    [timecreated] => 1536903716
+    [timemodified] => 0
+    [grade] => 100
+)
+
+Course module object: stdClass Object
+(
+    [id] => 12
+    [course] => 5
+    [module] => 29
+    [instance] => 1
+    [section] => 17
+    [idnumber] => 
+    [added] => 1536903716
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => First test
+    [modname] => pairwork
+)
+
+Pairwork object: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => First test
+    [intro] => <p>First test<br></p>
+    [introformat] => 1
+    [timecreated] => 1536903716
+    [timemodified] => 0
+    [grade] => 100
+)
+
+Course module object: stdClass Object
+(
+    [id] => 12
+    [course] => 5
+    [module] => 29
+    [instance] => 1
+    [section] => 17
+    [idnumber] => 
+    [added] => 1536903716
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => First test
+    [modname] => pairwork
+)
+
+Pairwork object: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => First test
+    [intro] => <p>First test<br></p>
+    [introformat] => 1
+    [timecreated] => 1536903716
+    [timemodified] => 0
+    [grade] => 100
+)
+
+Course module object: stdClass Object
+(
+    [id] => 12
+    [course] => 5
+    [module] => 29
+    [instance] => 1
+    [section] => 17
+    [idnumber] => 
+    [added] => 1536903716
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => First test
+    [modname] => pairwork
+)
+
+Pairwork object: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => First test
+    [intro] => <p>First test<br></p>
+    [introformat] => 1
+    [title] => 
+    [timecreated] => 1536903716
+    [timemodified] => 0
+    [grade] => 100
+)
+
+Course module object: stdClass Object
+(
+    [id] => 12
+    [course] => 5
+    [module] => 29
+    [instance] => 1
+    [section] => 17
+    [idnumber] => 
+    [added] => 1536903716
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => First test
+    [modname] => pairwork
+)
+
+Pairwork object: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => First test
+    [intro] => <p>First test<br></p>
+    [introformat] => 1
+    [title] => Yay, it works!!
+    [timecreated] => 1536903716
+    [timemodified] => 1536987579
+    [grade] => 100
+)
+
+Course module object: stdClass Object
+(
+    [id] => 12
+    [course] => 5
+    [module] => 29
+    [instance] => 1
+    [section] => 17
+    [idnumber] => 
+    [added] => 1536903716
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => First test
+    [modname] => pairwork
+)
+
+Pairwork object: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => First test
+    [intro] => <p>First test<br></p>
+    [introformat] => 1
+    [title] => Yay, it works!!
+    [timecreated] => 1536903716
+    [timemodified] => 1536987579
+    [grade] => 100
+)
+
+Course module object: stdClass Object
+(
+    [id] => 12
+    [course] => 5
+    [module] => 29
+    [instance] => 1
+    [section] => 17
+    [idnumber] => 
+    [added] => 1536903716
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => First test
+    [modname] => pairwork
+)
+
+Pairwork object: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => First test
+    [intro] => <p>First test<br></p>
+    [introformat] => 1
+    [title] => Yay, it works!!
+    [timecreated] => 1536903716
+    [timemodified] => 1536987579
+    [grade] => 100
+)
+
+Course module object: stdClass Object
+(
+    [id] => 12
+    [course] => 5
+    [module] => 29
+    [instance] => 1
+    [section] => 17
+    [idnumber] => 
+    [added] => 1536903716
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => First test
+    [modname] => pairwork
+)
+

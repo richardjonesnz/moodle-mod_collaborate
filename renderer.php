@@ -15,21 +15,37 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the version and other meta-info about the plugin
+ * Custom renderer for output of pages
  *
- * @package    mod_pairwork
- * @copyright  2018 Richard Jones richardnz@outlook.com
+ * @package    mod_simplelesson
+ * @copyright  2018 Richard Jones <richardnz@outlook.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
  * @see https://github.com/justinhunt/moodle-mod_pairwork
  */
-
+use \mod_pairwork\local\debugging;
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_pairwork';
-$plugin->version = 2018091502;
-$plugin->release = 'v0.1'; // Basic activity plugin template.
-$plugin->requires = 2017111301; // Moodle 3.4, 3.5.
-$plugin->maturity = MATURITY_ALPHA;
-$plugin->cron = 0;
-$plugin->dependencies = array();
+/**
+ * Renderer for Pairwork mod.
+ */
+class mod_pairwork_renderer extends plugin_renderer_base {
+
+    /**
+     * Returns the main content.
+     *
+     */
+    public function fetch_page_content($pairwork, $cm) {
+
+        $output = $this->output->header();
+        $output .= $this->output->heading($pairwork->title);
+        $output .= $this->output->box(
+                format_module_intro('pairwork', $pairwork, $cm->id),
+                'generalbox mod_introbox', 'pairworkintro');
+        // Local debug/information/error logging.
+        debugging::logit('Pairwork object: ', $pairwork);
+        debugging::logit('Course module object: ', $cm);
+
+        return $output;
+    }
+}

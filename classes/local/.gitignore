@@ -1,0 +1,2 @@
+# Don't need the debugging class in master
+classes/local/debugging.php

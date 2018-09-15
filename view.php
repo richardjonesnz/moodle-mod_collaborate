@@ -23,11 +23,10 @@
  * @package    mod_pairwork
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+ * @see https://github.com/moodlehq/moodle-mod_newmodule
+ * @see https://github.com/justinhunt/moodle-mod_pairwork */
 
-// Replace pairwork with the name of your module and remove this line.
-
-require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
+require_once('../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
 
 $id = optional_param('id', 0, PARAM_INT); // Course_module ID, or
@@ -42,11 +41,14 @@ if ($id) {
     $course     = $DB->get_record('course', array('id' => $pairwork->course), '*', MUST_EXIST);
     $cm         = get_coursemodule_from_instance('pairwork', $pairwork->id, $course->id, false, MUST_EXIST);
 } else {
-    error('You must specify a course_module ID or an instance ID');
+    // Moodle Developer debugging called.
+    debugging('Internal error: No course_module ID or instance ID',
+            DEBUG_DEVELOPER);
 }
 
 require_login($course, true, $cm);
 
+// Record the module viewed event for logging.
 $event = \mod_pairwork\event\course_module_viewed::create(array(
     'objectid' => $PAGE->cm->instance,
     'context' => $PAGE->context,
@@ -56,28 +58,20 @@ $event->add_record_snapshot($PAGE->cm->modname, $pairwork);
 $event->trigger();
 
 // Print the page header.
-
 $PAGE->set_url('/mod/pairwork/view.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($pairwork->name));
 $PAGE->set_heading(format_string($course->fullname));
 
-/*
- * Other things you may want to set - remove if not needed.
- * $PAGE->set_cacheable(false);
- * $PAGE->set_focuscontrol('some-html-id');
- * $PAGE->add_body_class('pairwork-'.$somevar);
- */
+// The renderer performs output to the page.
+$renderer = $PAGE->get_renderer('mod_pairwork');
 
-// Output starts here.
-echo $OUTPUT->header();
-
-// Conditions to show the intro can change to look for own settings or whatever.
-if ($pairwork->intro) {
-    echo $OUTPUT->box(format_module_intro('pairwork', $pairwork, $cm->id), 'generalbox mod_introbox', 'pairworkintro');
+// Check for intro page.
+if (!$pairwork->intro) {
+    $pairwork->intro = '';
 }
 
-// Replace the following lines with you own code.
-echo $OUTPUT->heading('Yay! It works!');
+// Call the custom renderer function to show the content.
+echo $renderer->fetch_page_content($pairwork, $cm);
 
 // Finish the page.
 echo $OUTPUT->footer();

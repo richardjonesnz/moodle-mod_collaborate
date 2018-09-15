@@ -40,3 +40,6 @@ $string['pairworkname_help'] = 'This is the content of the help tooltip associat
 $string['pairwork'] = 'pairwork';
 $string['pluginadministration'] = 'pairwork administration';
 $string['pluginname'] = 'pairwork';
+
+// Mod form specific pairwork settings.
+$string['title'] = 'Activity Title: ';

@@ -23,7 +23,8 @@
  * @package    mod_pairwork
  * @copyright  2018 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+ * @see https://github.com/moodlehq/moodle-mod_newmodule
+ * @see https://github.com/justinhunt/moodle-mod_pairwork */
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -67,12 +68,10 @@ class mod_pairwork_mod_form extends moodleform_mod {
             $this->add_intro_editor();
         }
 
-        // Adding the rest of pairwork settings, spreading all them into this fieldset
-        // ... or adding more fieldsets ('header' elements) if needed for better logic.
-        $mform->addElement('static', 'label1', 'pairworksetting1', 'Your pairwork fields go here. Replace me!');
-
-        $mform->addElement('header', 'pairworkfieldset', get_string('pairworkfieldset', 'pairwork'));
-        $mform->addElement('static', 'label2', 'pairworksetting2', 'Your pairwork fields go here. Replace me!');
+        // Add a specific mod_pairwork field - title.
+        $mform->addElement('text', 'title',
+                get_string('title', 'mod_pairwork'));
+        $mform->setType('title', PARAM_TEXT);
 
         // Add standard grading elements.
         $this->standard_grading_coursemodule_elements();
