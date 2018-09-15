@@ -27,9 +27,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_pairwork';
-$plugin->version = 2018091502;
-$plugin->release = 'v0.1'; // Basic activity plugin template.
+$plugin->version = 2018091600;
+$plugin->release = 'v1.0'; // Basic activity plugin template.
 $plugin->requires = 2017111301; // Moodle 3.4, 3.5.
-$plugin->maturity = MATURITY_ALPHA;
+$plugin->maturity = MATURITY_BETA;
 $plugin->cron = 0;
 $plugin->dependencies = array();

@@ -32,6 +32,8 @@ defined('MOODLE_INTERNAL') || die;
  * @category  backup
  * @copyright 2018 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @see https://github.com/moodlehq/moodle-mod_newmodule
+ * @see https://github.com/justinhunt/moodle-mod_pairwork
  */
 class backup_pairwork_activity_structure_step extends backup_activity_structure_step {
 
@@ -46,8 +48,10 @@ class backup_pairwork_activity_structure_step extends backup_activity_structure_
         $userinfo = $this->get_setting_value('userinfo');
 
         // Define the root element describing the pairwork instance.
-        $pairwork = new backup_nested_element('pairwork', array('id'), array(
-            'name', 'intro', 'introformat', 'grade'));
+        $pairwork = new backup_nested_element('pairwork',
+                array('id'), array('course', 'name', 'intro',
+                'introformat', 'title', 'timecreated',
+                'timemodified', 'grade'));
 
         // If we had more elements, we would build the tree here.
 
