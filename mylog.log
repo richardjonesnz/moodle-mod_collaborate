@@ -24,3 +24,55 @@ Test log entry: stdClass Object
     [grade] => 100
 )
 
+Test log entry: stdClass Object
+(
+    [id] => 3
+    [course] => 5
+    [name] => test (copy)
+    [intro] => <p>widget content right here.<br></p>
+    [introformat] => 1
+    [title] => my widget
+    [timecreated] => 1556416290
+    [timemodified] => 1556417430
+    [grade] => 100
+)
+
+Test log entry: stdClass Object
+(
+    [id] => 4
+    [course] => 5
+    [name] => test (copy)
+    [intro] => <p>widget content right here.<br></p>
+    [introformat] => 1
+    [title] => my widget
+    [timecreated] => 1556416290
+    [timemodified] => 1556417430
+    [grade] => 100
+)
+
+Test log entry: stdClass Object
+(
+    [id] => 4
+    [course] => 5
+    [name] => test (copy)
+    [intro] => <p>widget content right here. A copy<br></p>
+    [introformat] => 1
+    [title] => my widget
+    [timecreated] => 1556416290
+    [timemodified] => 1556418305
+    [grade] => 100
+)
+
+Test log entry: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => test
+    [intro] => <p>widget content right here.<br></p>
+    [introformat] => 1
+    [title] => my widget
+    [timecreated] => 1556416290
+    [timemodified] => 1556417430
+    [grade] => 100
+)
+

@@ -75,8 +75,8 @@ class restore_widget_activity_task extends restore_activity_task {
     static public function define_decode_rules() {
         $rules = array();
 
-        $rules[] = new restore_decode_rule('widgetVIEWBYID', '/mod/widget/view.php?id=$1', 'course_module');
-        $rules[] = new restore_decode_rule('widgetINDEX', '/mod/widget/index.php?id=$1', 'course');
+        $rules[] = new restore_decode_rule('WIDGETVIEWBYID', '/mod/widget/view.php?id=$1', 'course_module');
+        $rules[] = new restore_decode_rule('WIDGETINDEX', '/mod/widget/index.php?id=$1', 'course');
 
         return $rules;
 
