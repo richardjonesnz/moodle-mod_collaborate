@@ -1,6 +1,26 @@
-Template data: stdClass Object
+Test log entry: stdClass Object
 (
-    [heading] => <h2>Yay, it works!!</h2>
-    [body] => <div class="no-overflow"><p>First test<br></p></div>
+    [id] => 1
+    [course] => 5
+    [name] => test
+    [intro] => <p>widget<br></p>
+    [introformat] => 1
+    [title] => my widget
+    [timecreated] => 1556416290
+    [timemodified] => 0
+    [grade] => 100
+)
+
+Test log entry: stdClass Object
+(
+    [id] => 1
+    [course] => 5
+    [name] => test
+    [intro] => <p>widget content right here.<br></p>
+    [introformat] => 1
+    [title] => my widget
+    [timecreated] => 1556416290
+    [timemodified] => 1556417430
+    [grade] => 100
 )
 

@@ -39,26 +39,6 @@ defined('MOODLE_INTERNAL') || die();
  * @return bool
  */
 function xmldb_widget_upgrade($oldversion) {
-    global $DB;
-
-    $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
-
-    // Upgraded to add title field to pairowrk table.
-    if ($oldversion < 2018091502) {
-
-        // Define field title to be added to widget.
-        // After field intro format.
-        $table = new xmldb_table('widget');
-        $field = new xmldb_field('title', XMLDB_TYPE_TEXT,
-                'medium', null, null, null, null,
-                'introformat');
-
-        // Add field course.
-        if (!$dbman->field_exists($table, $field)) {
-            $dbman->add_field($table, $field);
-        }
-    }
-    upgrade_mod_savepoint(true, 2018091502, 'widget');
 
     return true;
 }

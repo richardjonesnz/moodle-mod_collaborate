@@ -17,14 +17,13 @@
 /**
  * Prints a particular instance of widget
  *
- * You can have a rather longer description of the file as well,
- * if you like, and it can span multiple lines.
- *
  * @package    mod_widget
- * @copyright  2018 Richard Jones richardnz@outlook.com
+ * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
  * @see https://github.com/justinhunt/moodle-mod_widget */
+
+use \mod_widget\local\debugging;
 
 require_once('../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
@@ -47,10 +46,6 @@ if ($id) {
             array('id' => $widget->course), '*', MUST_EXIST);
     $cm = get_coursemodule_from_instance('widget', $widget->id,
             $course->id, false, MUST_EXIST);
-} else {
-    // Moodle Developer debugging called.
-    debugging('Error: No course_module ID or instance ID',
-            DEBUG_DEVELOPER);
 }
 
 require_login($course, true, $cm);
@@ -68,6 +63,9 @@ $event->trigger();
 $PAGE->set_url('/mod/widget/view.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($widget->name));
 $PAGE->set_heading(format_string($course->fullname));
+
+// Make an entry in the debug log.
+debugging::logit('Test log entry: ', $widget);
 
 // The renderer performs output to the page.
 $renderer = $PAGE->get_renderer('mod_widget');
