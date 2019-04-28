@@ -21,7 +21,7 @@
  * visit: http://docs.moodle.org/en/Development:lib/formslib.php
  *
  * @package    mod_widget
- * @copyright  2018 Richard Jones richardnz@outlook.com
+ * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
  * @see https://github.com/justinhunt/moodle-mod_widget */
@@ -34,7 +34,7 @@ require_once($CFG->dirroot.'/course/moodleform_mod.php');
  * Module instance settings form
  *
  * @package    mod_widget
- * @copyright  2018 Richard Jones richardnz@outlook.com
+ * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class mod_widget_mod_form extends moodleform_mod {

@@ -25,7 +25,7 @@
  * here will all be database-neutral, using the functions defined in DLL libraries.
  *
  * @package    mod_widget
- * @copyright  2018 Richard Jones richardnz@outlook.com
+ * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
  * @see https://github.com/justinhunt/moodle-mod_widget*/

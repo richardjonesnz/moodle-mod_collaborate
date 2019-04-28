@@ -19,7 +19,7 @@
  *
  * @package   mod_widget
  * @category  backup
- * @copyright 2018 Richard Jones richardnz@outlook.com
+ * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die;
  *
  * @package   mod_widget
  * @category  backup
- * @copyright 2018 Richard Jones richardnz@outlook.com
+ * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
  * @see https://github.com/justinhunt/moodle-mod_widget

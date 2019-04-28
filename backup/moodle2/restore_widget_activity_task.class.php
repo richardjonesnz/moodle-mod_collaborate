@@ -19,7 +19,7 @@
  *
  * @package   mod_widget
  * @category  backup
- * @copyright 2018 Richard Jones richardnz@outlook.com
+ * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_newmodule
  * @see https://github.com/justinhunt/moodle-mod_widget
@@ -36,7 +36,7 @@ require_once($CFG->dirroot . '/mod/widget/backup/moodle2/restore_widget_stepslib
  *
  * @package   mod_widget
  * @category  backup
- * @copyright 2018 Richard Jones richardnz@outlook.com
+ * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class restore_widget_activity_task extends restore_activity_task {
