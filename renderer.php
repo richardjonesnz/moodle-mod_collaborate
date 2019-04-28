@@ -32,13 +32,13 @@ defined('MOODLE_INTERNAL') || die();
 class mod_widget_renderer extends plugin_renderer_base {
 
     /**
-     * Returns the main content.
+     * Displays the main view page content.
      *
      * @param $widget the widget instance std Object
      * @param $cm the course module std Object
-     * @return $output, text/html to display content
+     * @return none
      */
-    public function fetch_view_page_content($widget, $cm) {
+    public function render_view_page_content($widget, $cm) {
 
         $data = new stdClass();
 
@@ -46,6 +46,10 @@ class mod_widget_renderer extends plugin_renderer_base {
         // Moodle handles processing of std intro field.
         $data->body = format_module_intro('widget',
                 $widget, $cm->id);
-        return $this->render_from_template('mod_widget/view', $data);
+
+        // Display the view page content.
+        echo $this->output->header();
+        echo $this->render_from_template('mod_widget/view', $data);
+        echo $this->output->footer();
     }
 }

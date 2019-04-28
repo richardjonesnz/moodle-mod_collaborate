@@ -65,7 +65,7 @@ $PAGE->set_title(format_string($widget->name));
 $PAGE->set_heading(format_string($course->fullname));
 
 // Make an entry in the debug log.
-debugging::logit('Test log entry: ', $widget);
+// debugging::logit('Test log entry: ', $widget);
 
 // The renderer performs output to the page.
 $renderer = $PAGE->get_renderer('mod_widget');
@@ -74,8 +74,5 @@ $renderer = $PAGE->get_renderer('mod_widget');
 if (!$widget->intro) {
     $widget->intro = '';
 }
-// Start the page, call renderer to show content and
-// finish the page.
-echo $OUTPUT->header();
-echo $renderer->fetch_view_page_content($widget, $cm);
-echo $OUTPUT->footer();
+// Call the renderer method to display the widget intro content.
+$renderer->render_view_page_content($widget, $cm);

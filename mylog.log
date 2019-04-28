@@ -1,78 +1,12 @@
 Test log entry: stdClass Object
 (
-    [id] => 1
-    [course] => 5
-    [name] => test
-    [intro] => <p>widget<br></p>
-    [introformat] => 1
-    [title] => my widget
-    [timecreated] => 1556416290
-    [timemodified] => 0
-    [grade] => 100
-)
-
-Test log entry: stdClass Object
-(
-    [id] => 1
-    [course] => 5
-    [name] => test
-    [intro] => <p>widget content right here.<br></p>
-    [introformat] => 1
-    [title] => my widget
-    [timecreated] => 1556416290
-    [timemodified] => 1556417430
-    [grade] => 100
-)
-
-Test log entry: stdClass Object
-(
-    [id] => 3
+    [id] => 5
     [course] => 5
     [name] => test (copy)
-    [intro] => <p>widget content right here.<br></p>
+    [intro] => <p>widget content right here.</p><p><img src="@@PLUGINFILE@@/george-bernard-shaw-two-percent-of-the-people-think.jpg" alt="gbs" class="img-responsive atto_image_button_text-bottom" width="630" height="504"><br></p>
     [introformat] => 1
     [title] => my widget
     [timecreated] => 1556416290
-    [timemodified] => 1556417430
+    [timemodified] => 1556418461
     [grade] => 100
 )
-
-Test log entry: stdClass Object
-(
-    [id] => 4
-    [course] => 5
-    [name] => test (copy)
-    [intro] => <p>widget content right here.<br></p>
-    [introformat] => 1
-    [title] => my widget
-    [timecreated] => 1556416290
-    [timemodified] => 1556417430
-    [grade] => 100
-)
-
-Test log entry: stdClass Object
-(
-    [id] => 4
-    [course] => 5
-    [name] => test (copy)
-    [intro] => <p>widget content right here. A copy<br></p>
-    [introformat] => 1
-    [title] => my widget
-    [timecreated] => 1556416290
-    [timemodified] => 1556418305
-    [grade] => 100
-)
-
-Test log entry: stdClass Object
-(
-    [id] => 1
-    [course] => 5
-    [name] => test
-    [intro] => <p>widget content right here.<br></p>
-    [introformat] => 1
-    [title] => my widget
-    [timecreated] => 1556416290
-    [timemodified] => 1556417430
-    [grade] => 100
-)
-
