@@ -73,9 +73,6 @@ class mod_widget_mod_form extends moodleform_mod {
                 get_string('title', 'mod_widget'));
         $mform->setType('title', PARAM_TEXT);
 
-        // Add standard grading elements.
-        $this->standard_grading_coursemodule_elements();
-
         // Add standard elements, common to all modules.
         $this->standard_coursemodule_elements();
 
