@@ -31,5 +31,3 @@ $plugin->version = 2019042800;
 $plugin->release = 'v1.0'; // Basic activity plugin template.
 $plugin->requires = 2017111301; // Moodle 3.4, 3.5, 3.6.
 $plugin->maturity = MATURITY_BETA;
-$plugin->cron = 0;
-$plugin->dependencies = array();

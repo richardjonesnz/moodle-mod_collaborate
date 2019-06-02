@@ -54,8 +54,6 @@ function widget_supports($feature) {
             return true;
         case FEATURE_SHOW_DESCRIPTION:
             return true;
-        case FEATURE_GRADE_HAS_GRADE:
-            return true;
         case FEATURE_BACKUP_MOODLE2:
             return true;
         default:
@@ -79,12 +77,7 @@ function widget_add_instance(stdClass $widget, mod_widget_mod_form $mform = null
     global $DB;
 
     $widget->timecreated = time();
-
-    // You may have to add extra stuff in here.
-
     $widget->id = $DB->insert_record('widget', $widget);
-
-    widget_grade_item_update($widget);
 
     return $widget->id;
 }
@@ -106,11 +99,7 @@ function widget_update_instance(stdClass $widget, mod_widget_mod_form $mform = n
     $widget->timemodified = time();
     $widget->id = $widget->instance;
 
-    // You may have to add extra stuff in here.
-
     $result = $DB->update_record('widget', $widget);
-
-    widget_grade_item_update($widget);
 
     return $result;
 }
@@ -164,10 +153,7 @@ function widget_delete_instance($id) {
     }
 
     // Delete any dependent records here.
-
     $DB->delete_records('widget', array('id' => $widget->id));
-
-    widget_grade_item_delete($widget);
 
     return true;
 }
@@ -277,114 +263,6 @@ function widget_cron () {
  */
 function widget_get_extra_capabilities() {
     return array();
-}
-
-/* Gradebook API */
-
-/**
- * Is a given scale used by the instance of widget?
- *
- * This function returns if a scale is being used by one widget
- * if it has support for grading and scales.
- *
- * @param int $widgetid ID of an instance of this module
- * @param int $scaleid ID of the scale
- * @return bool true if the scale is used by the given widget instance
- */
-function widget_scale_used($widgetid, $scaleid) {
-    global $DB;
-
-    if ($scaleid and $DB->record_exists('widget', array('id' => $widgetid, 'grade' => -$scaleid))) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
- * Checks if scale is being used by any instance of widget.
- *
- * This is used to find out if scale used anywhere.
- *
- * @param int $scaleid ID of the scale
- * @return boolean true if the scale is used by any widget instance
- */
-function widget_scale_used_anywhere($scaleid) {
-    global $DB;
-
-    if ($scaleid and $DB->record_exists('widget', array('grade' => -$scaleid))) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
- * Creates or updates grade item for the given widget instance
- *
- * Needed by {@link grade_update_mod_grades()}.
- *
- * @param stdClass $widget instance object with extra cmidnumber and modname property
- * @param bool $reset reset grades in the gradebook
- * @return void
- */
-function widget_grade_item_update(stdClass $widget, $reset=false) {
-    global $CFG;
-    require_once($CFG->libdir.'/gradelib.php');
-
-    $item = array();
-    $item['itemname'] = clean_param($widget->name, PARAM_NOTAGS);
-    $item['gradetype'] = GRADE_TYPE_VALUE;
-
-    if ($widget->grade > 0) {
-        $item['gradetype'] = GRADE_TYPE_VALUE;
-        $item['grademax']  = $widget->grade;
-        $item['grademin']  = 0;
-    } else if ($widget->grade < 0) {
-        $item['gradetype'] = GRADE_TYPE_SCALE;
-        $item['scaleid']   = -$widget->grade;
-    } else {
-        $item['gradetype'] = GRADE_TYPE_NONE;
-    }
-
-    if ($reset) {
-        $item['reset'] = true;
-    }
-
-    grade_update('mod/widget', $widget->course, 'mod', 'widget',
-            $widget->id, 0, null, $item);
-}
-
-/**
- * Delete grade item for given widget instance
- *
- * @param stdClass $widget instance object
- * @return grade_item
- */
-function widget_grade_item_delete($widget) {
-    global $CFG;
-    require_once($CFG->libdir.'/gradelib.php');
-
-    return grade_update('mod/widget', $widget->course, 'mod', 'widget',
-            $widget->id, 0, null, array('deleted' => 1));
-}
-
-/**
- * Update widget grades in the gradebook
- *
- * Needed by {@link grade_update_mod_grades()}.
- *
- * @param stdClass $widget instance object with extra cmidnumber and modname property
- * @param int $userid update grade of specific user only, 0 means all participants
- */
-function widget_update_grades(stdClass $widget, $userid = 0) {
-    global $CFG, $DB;
-    require_once($CFG->libdir.'/gradelib.php');
-
-    // Populate array of grade objects indexed by userid.
-    $grades = array();
-
-    grade_update('mod/widget', $widget->course, 'mod', 'widget', $widget->id, 0, $grades);
 }
 
 /* File API */
