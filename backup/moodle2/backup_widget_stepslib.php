@@ -51,7 +51,7 @@ class backup_widget_activity_structure_step extends backup_activity_structure_st
         $widget = new backup_nested_element('widget',
                 array('id'), array('course', 'name', 'intro',
                 'introformat', 'title', 'timecreated',
-                'timemodified', 'grade'));
+                'timemodified'));
 
         // If we had more elements, we would build the tree here.
 

@@ -11,7 +11,7 @@ Instructions for installing:
 
 Download the zip file or clone the repository into your moodle/mod folder using the instructions given under the button "Clone or download".
 
-Assuming you are going to change your module name from wodget to something more relevant, do the following.
+Assuming you are going to change your module name from widget to something more relevant, do the following.
 
 Rename these files:
 ===================
@@ -27,7 +27,7 @@ Navigate to your admin dashboard and install the new module.
 
 For newbie users
 ================
-You may notice the .gitignore file and a reference to a local class debugging.  This is a simple script that allows you to output debugging information to file.
+You may notice a reference to a local class debugging.  This is a simple script that allows you to output debugging information to file.
 
 It looks like this"
 

@@ -69,11 +69,6 @@ class restore_widget_activity_structure_step extends restore_activity_structure_
             $data->timemodified = time();
         }
 
-        if ($data->grade < 0) {
-            // Scale found, get mapping.
-            $data->grade = -($this->get_mappingid('scale', abs($data->grade)));
-        }
-
         // Create the widget instance.
         $newitemid = $DB->insert_record('widget', $data);
         $this->apply_activity_instance($newitemid);

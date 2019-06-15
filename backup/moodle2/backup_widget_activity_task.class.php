@@ -27,7 +27,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->dirroot . '/mod/widget/backup/moodle2/backup_widget_stepslib.php');
-
+require_once($CFG->dirroot . '/mod/widget/backup/moodle2/backup_widget_settingslib.php');
 /**
  * Provides the steps to perform one complete backup of the widget instance
  *
@@ -65,11 +65,11 @@ class backup_widget_activity_task extends backup_activity_task {
 
         // Link to the list of widgets.
         $search = '/('.$base.'\/mod\/widget\/index.php\?id\=)([0-9]+)/';
-        $content = preg_replace($search, '$@widgetINDEX*$2@$', $content);
+        $content = preg_replace($search, '$@WIDGETINDEX*$2@$', $content);
 
         // Link to widget view by moduleid.
         $search = '/('.$base.'\/mod\/widget\/view.php\?id\=)([0-9]+)/';
-        $content = preg_replace($search, '$@widgetVIEWBYID*$2@$', $content);
+        $content = preg_replace($search, '$@WIDGETVIEWBYID*$2@$', $content);
 
         return $content;
     }
