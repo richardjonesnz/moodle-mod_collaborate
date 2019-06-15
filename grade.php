@@ -15,30 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file keeps track of upgrades to the widget module
- *
- * Sometimes, changes between versions involve alterations to database
- * structures and other major things that may break installations. The upgrade
- * function in this file will attempt to perform all the necessary actions to
- * upgrade your older installation to the current version. If there's something
- * it cannot do itself, it will tell you what you need to do.  The commands in
- * here will all be database-neutral, using the functions defined in DLL libraries.
+ * Redirect the user to the appropriate submission related page.
  *
  * @package    mod_widget
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget*/
-
-defined('MOODLE_INTERNAL') || die();
-
-/**
- * Execute widget upgrade from the given old version
- *
- * @param int $oldversion
- * @return bool
+ * @see https://github.com/justinhunt/moodle-mod_widget
  */
-function xmldb_widget_upgrade($oldversion) {
+require_once(__DIR__ . "../../../config.php");
+$id = required_param('id', PARAM_INT);// Course module ID.
 
-    return true;
-}
+// Item number may be != 0 for activities that allow more than one grade per user.
+$itemnumber = optional_param('itemnumber', 0, PARAM_INT);
+$userid = optional_param('userid', 0, PARAM_INT); // Graded user ID (optional).
+
+// In the simplest case just redirect to the view page.
+redirect('view.php?id='.$id);

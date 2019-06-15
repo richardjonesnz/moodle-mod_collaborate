@@ -21,7 +21,7 @@
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_newmodule
+ * @see https://github.com/moodlehq/moodle-mod_widget
  * @see https://github.com/justinhunt/moodle-mod_widget */
 
 defined('MOODLE_INTERNAL') || die;
@@ -35,7 +35,7 @@ require_once($CFG->dirroot . '/mod/widget/backup/moodle2/backup_widget_settingsl
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_newmodule
+ * @see https://github.com/moodlehq/moodle-mod_widget
  * @see https://github.com/justinhunt/moodle-mod_widget */
 class backup_widget_activity_task extends backup_activity_task {
 

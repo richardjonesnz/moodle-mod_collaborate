@@ -1,4 +1,4 @@
-A template for Moodle modules.  Updated from Moodle HQ's moodle-mod_NEWMODULE template.
+A template for Moodle modules.  Updated from Moodle HQ's moodle-mod_widget template.
 
 Added:
 
