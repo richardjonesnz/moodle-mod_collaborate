@@ -58,6 +58,9 @@ $PAGE->set_heading(format_string($course->fullname));
 // The renderer performs output to the page.
 $renderer = $PAGE->get_renderer('mod_widget');
 
+// Test the debugging.
+debugging::logit("My widget: ", $widget);
+
 // Check for intro page content.
 if (!$widget->intro) {
     $widget->intro = '';
