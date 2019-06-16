@@ -52,7 +52,7 @@ if ($id) {
 $PAGE->set_url('/mod/widget/view.php', array('id' => $cm->id));
 
 require_login($course, true, $cm);
-
+/widget
 $PAGE->set_title(format_string($widget->name));
 $PAGE->set_heading(format_string($course->fullname));
 
