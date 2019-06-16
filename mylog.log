@@ -11,3 +11,111 @@ My widget: stdClass Object
     [grade] => 100
 )
 
+My instance: stdClass Object
+(
+    [id] => 22
+    [course] => 3
+    [module] => 28
+    [instance] => 1
+    [section] => 3
+    [idnumber] => 
+    [added] => 1560635386
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => Test widget
+    [modname] => widget
+)
+
+My instance: stdClass Object
+(
+    [id] => 22
+    [course] => 3
+    [module] => 28
+    [instance] => 1
+    [section] => 3
+    [idnumber] => 
+    [added] => 1560635386
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => Test widget
+    [modname] => widget
+)
+
+My instance: stdClass Object
+(
+    [id] => 23
+    [course] => 3
+    [module] => 28
+    [instance] => 2
+    [section] => 3
+    [idnumber] => 
+    [added] => 1560635386
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => Test widget (copy)
+    [modname] => widget
+)
+
+My instance: stdClass Object
+(
+    [id] => 23
+    [course] => 3
+    [module] => 28
+    [instance] => 2
+    [section] => 3
+    [idnumber] => 
+    [added] => 1560635386
+    [score] => 0
+    [indent] => 0
+    [visible] => 1
+    [visibleoncoursepage] => 1
+    [visibleold] => 1
+    [groupmode] => 0
+    [groupingid] => 0
+    [completion] => 1
+    [completiongradeitemnumber] => 
+    [completionview] => 0
+    [completionexpected] => 0
+    [showdescription] => 0
+    [availability] => 
+    [deletioninprogress] => 0
+    [name] => Test widget (copy)
+    [modname] => widget
+)
+

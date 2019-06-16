@@ -23,10 +23,10 @@
  * @see https://github.com/moodlehq/moodle-mod_widget
  * @see https://github.com/justinhunt/moodle-mod_widget */
 
-use \mod_widget\local\debugging;
 
 require_once('../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
+
 // We need the course module id (id) or
 // the widget instance id (n).
 $id = optional_param('id', 0, PARAM_INT);
@@ -48,18 +48,16 @@ if ($id) {
             $course->id, false, MUST_EXIST);
 }
 
-require_login($course, true, $cm);
-
 // Print the page header.
 $PAGE->set_url('/mod/widget/view.php', array('id' => $cm->id));
+
+require_login($course, true, $cm);
+
 $PAGE->set_title(format_string($widget->name));
 $PAGE->set_heading(format_string($course->fullname));
 
 // The renderer performs output to the page.
 $renderer = $PAGE->get_renderer('mod_widget');
-
-// Test the debugging.
-debugging::logit("My widget: ", $widget);
 
 // Check for intro page content.
 if (!$widget->intro) {
