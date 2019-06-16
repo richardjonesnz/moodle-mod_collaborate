@@ -67,14 +67,5 @@ $capabilities = array(
             'guest' => CAP_ALLOW,
             'user' => CAP_ALLOW,
         )
-    ),
-
-    'mod/widget:submit' => array(
-        'riskbitmask' => RISK_SPAM,
-        'captype' => 'write',
-        'contextlevel' => CONTEXT_MODULE,
-        'archetypes' => array(
-            'student' => CAP_ALLOW
-        )
-    ),
+    )
 );
