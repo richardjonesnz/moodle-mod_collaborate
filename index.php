@@ -17,11 +17,11 @@
 /**
  * Prints a list of module instances
  *
- * @package    mod_widget
+ * @package    mod_simplemod
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_simplemod
+ * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
@@ -36,12 +36,12 @@ require_course_login($course);
 $params = array(
     'context' => context_course::instance($course->id)
 );
-$event = \mod_widget\event\course_module_instance_list_viewed::create($params);
+$event = \mod_simplemod\event\course_module_instance_list_viewed::create($params);
 $event->add_record_snapshot('course', $course);
 $event->trigger();
 
-$strname = get_string('modulenameplural', 'mod_widget');
-$PAGE->set_url('/mod/widget/index.php', array('id' => $id));
+$strname = get_string('modulenameplural', 'mod_simplemod');
+$PAGE->set_url('/mod/simplemod/index.php', array('id' => $id));
 $PAGE->navbar->add($strname);
 $PAGE->set_title("$course->shortname: $strname");
 $PAGE->set_heading($course->fullname);
@@ -50,8 +50,8 @@ $PAGE->set_pagelayout('incourse');
 echo $OUTPUT->header();
 echo $OUTPUT->heading($strname);
 
-if (! $widgets = get_all_instances_in_course('widget', $course)) {
-    notice(get_string('nowidgets', 'widget'), new moodle_url('/course/view.php', array('id' => $course->id)));
+if (! $simplemods = get_all_instances_in_course('simplemod', $course)) {
+    notice(get_string('nosimplemods', 'simplemod'), new moodle_url('/course/view.php', array('id' => $course->id)));
 }
 
 $usesections = course_format_uses_sections($course->format);
@@ -70,7 +70,7 @@ if ($usesections) {
 
 $modinfo = get_fast_modinfo($course);
 $currentsection = '';
-foreach ($modinfo->instances['widget'] as $cm) {
+foreach ($modinfo->instances['simplemod'] as $cm) {
     $row = array();
     if ($usesections) {
         if ($cm->sectionnum !== $currentsection) {

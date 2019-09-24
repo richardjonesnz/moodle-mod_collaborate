@@ -16,32 +16,32 @@
 
 
 /**
- * English strings for widget
+ * English strings for simplemod
  *
  * You can have a rather longer description of the file as well,
  * if you like, and it can span multiple lines.
  *
- * @package    mod_widget
+ * @package    mod_simplemod
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_simplemod
+ * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['modulename'] = 'widget';
-$string['modulenameplural'] = 'widgets';
-$string['modulename_help'] = 'Use the widget module for... | The widget module allows...';
-$string['widget:addinstance'] = 'Add a new widget';
-$string['widget:submit'] = 'Submit widget';
-$string['widget:view'] = 'View widget';
-$string['widgetfieldset'] = 'Custom example fieldset';
-$string['widgetname'] = 'widget name';
-$string['widgetname_help'] = 'This is the content of the help tooltip associated with the widgetname field. Markdown syntax is supported.';
-$string['widget'] = 'widget';
-$string['pluginadministration'] = 'widget administration';
-$string['pluginname'] = 'widget';
+$string['modulename'] = 'simplemod';
+$string['modulenameplural'] = 'simplemods';
+$string['modulename_help'] = 'Use the simplemod module for... | The simplemod module allows...';
+$string['simplemod:addinstance'] = 'Add a new simplemod';
+$string['simplemod:submit'] = 'Submit simplemod';
+$string['simplemod:view'] = 'View simplemod';
+$string['simplemodfieldset'] = 'Custom example fieldset';
+$string['simplemodname'] = 'simplemod name';
+$string['simplemodname_help'] = 'This is the content of the help tooltip associated with the simplemodname field. Markdown syntax is supported.';
+$string['simplemod'] = 'simplemod';
+$string['pluginadministration'] = 'simplemod administration';
+$string['pluginname'] = 'simplemod';
 
-// Mod form specific widget settings.
+// Mod form specific simplemod settings.
 $string['title'] = 'Activity Title: ';

@@ -20,36 +20,36 @@
  * @package    mod_simplelesson
  * @copyright  2019 Richard Jones <richardnz@outlook.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_simplemod
+ * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
-use \mod_widget\local\debugging;
+use \mod_simplemod\local\debugging;
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Renderer for widget mod.
+ * Renderer for simplemod mod.
  */
-class mod_widget_renderer extends plugin_renderer_base {
+class mod_simplemod_renderer extends plugin_renderer_base {
 
     /**
      * Displays the main view page content.
      *
-     * @param $widget the widget instance std Object
+     * @param $simplemod the simplemod instance std Object
      * @param $cm the course module std Object
      * @return none
      */
-    public function render_view_page_content($widget, $cm) {
+    public function render_view_page_content($simplemod, $cm) {
 
         $data = new stdClass();
 
-        $data->heading = $widget->title;
+        $data->heading = $simplemod->title;
         // Moodle handles processing of std intro field.
-        $data->body = format_module_intro('widget',
-                $widget, $cm->id);
+        $data->body = format_module_intro('simplemod',
+                $simplemod, $cm->id);
 
         // Display the view page content.
         echo $this->output->header();
-        echo $this->render_from_template('mod_widget/view', $data);
+        echo $this->render_from_template('mod_simplemod/view', $data);
         echo $this->output->footer();
     }
 }

@@ -1,11 +1,11 @@
-My widget: stdClass Object
+My simplemod: stdClass Object
 (
     [id] => 1
     [course] => 3
-    [name] => Test widget
-    [intro] => <p>A widget test.</p><p><img src="@@PLUGINFILE@@/replace.PNG" alt="replace" class="img-responsive atto_image_button_text-bottom" width="475" height="231"><br></p>
+    [name] => Test simplemod
+    [intro] => <p>A simplemod test.</p><p><img src="@@PLUGINFILE@@/replace.PNG" alt="replace" class="img-responsive atto_image_button_text-bottom" width="475" height="231"><br></p>
     [introformat] => 1
-    [title] => My widget
+    [title] => My simplemod
     [timecreated] => 1560635386
     [timemodified] => 0
     [grade] => 100
@@ -18,7 +18,7 @@ My instance: stdClass Object
     [module] => 28
     [instance] => 1
     [section] => 3
-    [idnumber] => 
+    [idnumber] =>
     [added] => 1560635386
     [score] => 0
     [indent] => 0
@@ -28,14 +28,14 @@ My instance: stdClass Object
     [groupmode] => 0
     [groupingid] => 0
     [completion] => 1
-    [completiongradeitemnumber] => 
+    [completiongradeitemnumber] =>
     [completionview] => 0
     [completionexpected] => 0
     [showdescription] => 0
-    [availability] => 
+    [availability] =>
     [deletioninprogress] => 0
-    [name] => Test widget
-    [modname] => widget
+    [name] => Test simplemod
+    [modname] => simplemod
 )
 
 My instance: stdClass Object
@@ -45,7 +45,7 @@ My instance: stdClass Object
     [module] => 28
     [instance] => 1
     [section] => 3
-    [idnumber] => 
+    [idnumber] =>
     [added] => 1560635386
     [score] => 0
     [indent] => 0
@@ -55,14 +55,14 @@ My instance: stdClass Object
     [groupmode] => 0
     [groupingid] => 0
     [completion] => 1
-    [completiongradeitemnumber] => 
+    [completiongradeitemnumber] =>
     [completionview] => 0
     [completionexpected] => 0
     [showdescription] => 0
-    [availability] => 
+    [availability] =>
     [deletioninprogress] => 0
-    [name] => Test widget
-    [modname] => widget
+    [name] => Test simplemod
+    [modname] => simplemod
 )
 
 My instance: stdClass Object
@@ -72,7 +72,7 @@ My instance: stdClass Object
     [module] => 28
     [instance] => 2
     [section] => 3
-    [idnumber] => 
+    [idnumber] =>
     [added] => 1560635386
     [score] => 0
     [indent] => 0
@@ -82,14 +82,14 @@ My instance: stdClass Object
     [groupmode] => 0
     [groupingid] => 0
     [completion] => 1
-    [completiongradeitemnumber] => 
+    [completiongradeitemnumber] =>
     [completionview] => 0
     [completionexpected] => 0
     [showdescription] => 0
-    [availability] => 
+    [availability] =>
     [deletioninprogress] => 0
-    [name] => Test widget (copy)
-    [modname] => widget
+    [name] => Test simplemod (copy)
+    [modname] => simplemod
 )
 
 My instance: stdClass Object
@@ -99,7 +99,7 @@ My instance: stdClass Object
     [module] => 28
     [instance] => 2
     [section] => 3
-    [idnumber] => 
+    [idnumber] =>
     [added] => 1560635386
     [score] => 0
     [indent] => 0
@@ -109,13 +109,13 @@ My instance: stdClass Object
     [groupmode] => 0
     [groupingid] => 0
     [completion] => 1
-    [completiongradeitemnumber] => 
+    [completiongradeitemnumber] =>
     [completionview] => 0
     [completionexpected] => 0
     [showdescription] => 0
-    [availability] => 
+    [availability] =>
     [deletioninprogress] => 0
-    [name] => Test widget (copy)
-    [modname] => widget
+    [name] => Test simplemod (copy)
+    [modname] => simplemod
 )
 

@@ -15,25 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the restore steps that will be used by the restore_widget_activity_task
+ * Define all the restore steps that will be used by the restore_simplemod_activity_task
  *
- * @package   mod_widget
+ * @package   mod_simplemod
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_simplemod
+ * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
 
 /**
- * Structure step to restore one widget activity
+ * Structure step to restore one simplemod activity
  *
- * @package   mod_widget
+ * @package   mod_simplemod
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class restore_widget_activity_structure_step extends restore_activity_structure_step {
+class restore_simplemod_activity_structure_step extends restore_activity_structure_step {
 
     /**
      * Defines structure of path elements to be processed during the restore
@@ -43,7 +43,7 @@ class restore_widget_activity_structure_step extends restore_activity_structure_
     protected function define_structure() {
 
         $paths = array();
-        $paths[] = new restore_path_element('widget', '/activity/widget');
+        $paths[] = new restore_path_element('simplemod', '/activity/simplemod');
 
         // Return the paths wrapped into standard activity structure.
         return $this->prepare_activity_structure($paths);
@@ -54,7 +54,7 @@ class restore_widget_activity_structure_step extends restore_activity_structure_
      *
      * @param array $data parsed element data
      */
-    protected function process_widget($data) {
+    protected function process_simplemod($data) {
         global $DB;
 
         $data = (object)$data;
@@ -69,8 +69,8 @@ class restore_widget_activity_structure_step extends restore_activity_structure_
             $data->timemodified = time();
         }
 
-        // Create the widget instance.
-        $newitemid = $DB->insert_record('widget', $data);
+        // Create the simplemod instance.
+        $newitemid = $DB->insert_record('simplemod', $data);
         $this->apply_activity_instance($newitemid);
     }
 
@@ -78,7 +78,7 @@ class restore_widget_activity_structure_step extends restore_activity_structure_
      * Post-execution actions
      */
     protected function after_execute() {
-        // Add widget related files, no need to match by itemname (just internally handled context).
-        $this->add_related_files('mod_widget', 'intro', null);
+        // Add simplemod related files, no need to match by itemname (just internally handled context).
+        $this->add_related_files('mod_simplemod', 'intro', null);
     }
 }

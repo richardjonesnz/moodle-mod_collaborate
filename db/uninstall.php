@@ -19,15 +19,15 @@
  *
  * @see uninstall_plugin()
  *
- * @package    mod_widget
+ * @package    mod_simplemod
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget*/
+ * @see https://github.com/moodlehq/moodle-mod_simplemod
+ * @see https://github.com/justinhunt/moodle-mod_simplemod*/
 
 /**
  * Custom uninstallation procedure
  */
-function xmldb_widget_uninstall() {
+function xmldb_simplemod_uninstall() {
     return true;
 }

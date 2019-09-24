@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the backup steps that will be used by the backup_widget_activity_task
+ * Define all the backup steps that will be used by the backup_simplemod_activity_task
  *
- * @package   mod_widget
+ * @package   mod_simplemod
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,16 +26,16 @@
 defined('MOODLE_INTERNAL') || die;
 
 /**
- * Define the complete widget structure for backup, with file and id annotations
+ * Define the complete simplemod structure for backup, with file and id annotations
  *
- * @package   mod_widget
+ * @package   mod_simplemod
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_simplemod
+ * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
-class backup_widget_activity_structure_step extends backup_activity_structure_step {
+class backup_simplemod_activity_structure_step extends backup_activity_structure_step {
 
     /**
      * Defines the backup structure of the module
@@ -47,8 +47,8 @@ class backup_widget_activity_structure_step extends backup_activity_structure_st
         // Get know if we are including userinfo.
         $userinfo = $this->get_setting_value('userinfo');
 
-        // Define the root element describing the widget instance.
-        $widget = new backup_nested_element('widget',
+        // Define the root element describing the simplemod instance.
+        $simplemod = new backup_nested_element('simplemod',
                 array('id'), array('course', 'name', 'intro',
                 'introformat', 'title', 'timecreated',
                 'timemodified'));
@@ -56,15 +56,15 @@ class backup_widget_activity_structure_step extends backup_activity_structure_st
         // If we had more elements, we would build the tree here.
 
         // Define data sources.
-        $widget->set_source_table('widget', array('id' => backup::VAR_ACTIVITYID));
+        $simplemod->set_source_table('simplemod', array('id' => backup::VAR_ACTIVITYID));
 
         // If we were referring to other tables, we would annotate the relation
         // with the element's annotate_ids() method.
 
         // Define file annotations (we do not use itemid in this example).
-        $widget->annotate_files('mod_widget', 'intro', null);
+        $simplemod->annotate_files('mod_simplemod', 'intro', null);
 
-        // Return the root element (widget), wrapped into standard activity structure.
-        return $this->prepare_activity_structure($widget);
+        // Return the root element (simplemod), wrapped into standard activity structure.
+        return $this->prepare_activity_structure($simplemod);
     }
 }

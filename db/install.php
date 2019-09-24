@@ -20,11 +20,11 @@
  * This file replaces the legacy STATEMENTS section in db/install.xml,
  * lib.php/modulename_install() post installation hook and partially defaults.php.
  *
- * @package    mod_widget
+ * @package    mod_simplemod
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_widget
- * @see https://github.com/justinhunt/moodle-mod_widget
+ * @see https://github.com/moodlehq/moodle-mod_simplemod
+ * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
 
 /**
@@ -32,7 +32,7 @@
  *
  * @see upgrade_plugins_modules()
  */
-function xmldb_widget_install() {
+function xmldb_simplemod_install() {
 }
 
 /**
@@ -40,5 +40,5 @@ function xmldb_widget_install() {
  *
  * @see upgrade_plugins_modules()
  */
-function xmldb_widget_install_recovery() {
+function xmldb_simplemod_install_recovery() {
 }
