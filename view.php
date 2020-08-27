@@ -23,9 +23,8 @@
  * @see https://github.com/moodlehq/moodle-mod_simplemod
  * @see https://github.com/justinhunt/moodle-mod_simplemod */
 
-
+use mod_simplemod\output\view;
 require_once('../../config.php');
-require_once(dirname(__FILE__).'/lib.php');
 
 // We need the course module id (id) or
 // the simplemod instance id (n).
@@ -56,12 +55,15 @@ require_login($course, true, $cm);
 $PAGE->set_title(format_string($simplemod->name));
 $PAGE->set_heading(format_string($course->fullname));
 
-// The renderer performs output to the page.
-$renderer = $PAGE->get_renderer('mod_simplemod');
-
 // Check for intro page content.
 if (!$simplemod->intro) {
     $simplemod->intro = '';
 }
-// Call the renderer method to display the simplemod intro content.
-$renderer->render_view_page_content($simplemod, $cm);
+// Start output to browser.
+echo $OUTPUT->header();
+
+// Call classes/output/view and view.mustache to create output.
+echo $OUTPUT->render(new view($simplemod, $cm->id));
+
+// End output to browser.
+echo $OUTPUT->footer();

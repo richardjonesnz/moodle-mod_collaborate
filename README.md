@@ -2,9 +2,9 @@ A template for Moodle modules.  Updated from Moodle HQ's moodle-mod_simplemod te
 
 Added:
 
- - Custom renderer
  - Mustache template
  - Working backup/restore functionality for Moodle2
+ - No grades or events implemented
 
 Instructions for installing:
 ============================
@@ -55,6 +55,7 @@ Modify the file location (mylog.log) if desired.  Anywhere you want to view the 
 <pre>
 \mod_simplemod\local\debugging::logit("What is in a widegt: ", $simplemod);
 </pre>
+
 Using Xdebug
 ============
 Brackets, Sublime, PHP Storm and many other editors or IDEs use this.  If you are using Linux, there's plenty of info to google.
@@ -65,14 +66,26 @@ Whether by choice or not, many people are stuck with MS.  Xampp is a workable de
 
 Also install, at minumum, Git for Windows (even if you don't use it - and you should - you can use the git bash command line for many tasks).
 
+This is further described in the free course: MoodleBites for TechPrep
+https://www.moodlebites.com/enrol/index.php?id=228
+
 This article is helpful for installing xdebug on xampp:
 https://gist.github.com/odan/1abe76d373a9cbb15bed
 
+Changes
+=======
+1.1 - 27/08/20 - MINOR change to rendering
+Put the renderer function code into classes/output/view.php
+Called the template by the same name and now use the core renderer to display the page content.
+Removed the renderer.php file.
+
+Further information
+===================
 Have fun developing for Moodle.  This activity module is an
 example from MoodleBites for Developers level 2.
 
 https://www.moodlebites.com/mod/page/view.php?id=19542
 
 Richard Jones, richardnz@outlook.com
-Karapiro Village, NZ
-September 16th, 2018.
+Pirongia, NZ
+August 27th, 2020.

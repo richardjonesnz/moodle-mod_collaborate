@@ -15,41 +15,55 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Custom renderer for output of pages
+ * Prints a particular instance of simplemod
  *
- * @package    mod_simplelesson
- * @copyright  2019 Richard Jones <richardnz@outlook.com>
+ * @package    mod_simplemod
+ * @copyright  202 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @see https://github.com/moodlehq/moodle-mod_simplemod
  * @see https://github.com/justinhunt/moodle-mod_simplemod
  */
-use \mod_simplemod\local\debugging;
-defined('MOODLE_INTERNAL') || die();
+
+namespace mod_simplemod\output;
+
+use renderable;
+use renderer_base;
+use templatable;
+use stdClass;
 
 /**
- * Renderer for simplemod mod.
+ * Simplemod: Create a new view page renderable object
+ *
+ * @param string title - intro page title.
+ * @param int height - course module id.
+ * @copyright  2020 Richard Jones <richardnz@outlook.com>
  */
-class mod_simplemod_renderer extends plugin_renderer_base {
 
+class view implements renderable, templatable {
+
+    protected $simplemod;
+    protected $id;
+
+    public function __construct($simplemod, $id) {
+
+        $this->simplemod = $simplemod;
+        $this->id = $id;
+    }
     /**
-     * Displays the main view page content.
+     * Export this data so it can be used as the context for a mustache template.
      *
-     * @param $simplemod the simplemod instance std Object
-     * @param $cm the course module std Object
-     * @return none
+     * @param renderer_base $output
+     * @return stdClass
      */
-    public function render_view_page_content($simplemod, $cm) {
+    public function export_for_template(renderer_base $output) {
 
         $data = new stdClass();
 
-        $data->heading = $simplemod->title;
+        $data->title = $this->simplemod->title;
         // Moodle handles processing of std intro field.
         $data->body = format_module_intro('simplemod',
-                $simplemod, $cm->id);
+                $this->simplemod, $this->id);
 
-        // Display the view page content.
-        echo $this->output->header();
-        echo $this->render_from_template('mod_simplemod/view', $data);
-        echo $this->output->footer();
+        return $data;
     }
 }

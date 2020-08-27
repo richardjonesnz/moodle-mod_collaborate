@@ -62,11 +62,7 @@ class mod_simplemod_mod_form extends moodleform_mod {
         $mform->addHelpButton('name', 'simplemodname', 'simplemod');
 
         // Adding the standard "intro" and "introformat" fields.
-        if ($CFG->branch >= 29) {
-            $this->standard_intro_elements();
-        } else {
-            $this->add_intro_editor();
-        }
+        $this->standard_intro_elements();
 
         // Add a specific mod_simplemod field - title.
         $mform->addElement('text', 'title',

@@ -26,15 +26,19 @@
     Data attributes required for JS:
     * none
 
+    Context variables required for this template:
+    * title String a page title.
+    * body String of html code the formatted module intro.
+
     Example context (json):
         {
-         "heading": "My heading",
-         "body": "My html body"
+         "title": "My heading",
+         "body": "<p>My html body</p>"
         }
 }}
 <div class="card">
     <div class="card-body">
-        <h2 class="card-title">{{heading}}</h2>
+        <h2 class="card-title">{{title}}</h2>
         {{{body}}}
     </div>
 </div>
