@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file keeps track of upgrades to the simplemod module
+ * This file keeps track of upgrades to the collaborate module
  *
  * Sometimes, changes between versions involve alterations to database
  * structures and other major things that may break installations. The upgrade
@@ -24,21 +24,21 @@
  * it cannot do itself, it will tell you what you need to do.  The commands in
  * here will all be database-neutral, using the functions defined in DLL libraries.
  *
- * @package    mod_simplemod
+ * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_simplemod
- * @see https://github.com/justinhunt/moodle-mod_simplemod*/
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate*/
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Execute simplemod upgrade from the given old version
+ * Execute collaborate upgrade from the given old version
  *
  * @param int $oldversion
  * @return bool
  */
-function xmldb_simplemod_upgrade($oldversion) {
+function xmldb_collaborate_upgrade($oldversion) {
 
     return true;
 }

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the backup steps that will be used by the backup_simplemod_activity_task
+ * Define all the backup steps that will be used by the backup_collaborate_activity_task
  *
- * @package   mod_simplemod
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,16 +26,16 @@
 defined('MOODLE_INTERNAL') || die;
 
 /**
- * Define the complete simplemod structure for backup, with file and id annotations
+ * Define the complete collaborate structure for backup, with file and id annotations
  *
- * @package   mod_simplemod
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_simplemod
- * @see https://github.com/justinhunt/moodle-mod_simplemod
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
-class backup_simplemod_activity_structure_step extends backup_activity_structure_step {
+class backup_collaborate_activity_structure_step extends backup_activity_structure_step {
 
     /**
      * Defines the backup structure of the module
@@ -47,8 +47,8 @@ class backup_simplemod_activity_structure_step extends backup_activity_structure
         // Get know if we are including userinfo.
         $userinfo = $this->get_setting_value('userinfo');
 
-        // Define the root element describing the simplemod instance.
-        $simplemod = new backup_nested_element('simplemod',
+        // Define the root element describing the collaborate instance.
+        $collaborate = new backup_nested_element('collaborate',
                 array('id'), array('course', 'name', 'intro',
                 'introformat', 'title', 'timecreated',
                 'timemodified'));
@@ -56,15 +56,15 @@ class backup_simplemod_activity_structure_step extends backup_activity_structure
         // If we had more elements, we would build the tree here.
 
         // Define data sources.
-        $simplemod->set_source_table('simplemod', array('id' => backup::VAR_ACTIVITYID));
+        $collaborate->set_source_table('collaborate', array('id' => backup::VAR_ACTIVITYID));
 
         // If we were referring to other tables, we would annotate the relation
         // with the element's annotate_ids() method.
 
         // Define file annotations (we do not use itemid in this example).
-        $simplemod->annotate_files('mod_simplemod', 'intro', null);
+        $collaborate->annotate_files('mod_collaborate', 'intro', null);
 
-        // Return the root element (simplemod), wrapped into standard activity structure.
-        return $this->prepare_activity_structure($simplemod);
+        // Return the root element (collaborate), wrapped into standard activity structure.
+        return $this->prepare_activity_structure($collaborate);
     }
 }

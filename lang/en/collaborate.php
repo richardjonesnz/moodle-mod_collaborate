@@ -16,32 +16,32 @@
 
 
 /**
- * English strings for simplemod
+ * English strings for collaborate
  *
  * You can have a rather longer description of the file as well,
  * if you like, and it can span multiple lines.
  *
- * @package    mod_simplemod
+ * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_simplemod
- * @see https://github.com/justinhunt/moodle-mod_simplemod
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['modulename'] = 'simplemod';
-$string['modulenameplural'] = 'simplemods';
-$string['modulename_help'] = 'Use the simplemod module for... | The simplemod module allows...';
-$string['simplemod:addinstance'] = 'Add a new simplemod';
-$string['simplemod:submit'] = 'Submit simplemod';
-$string['simplemod:view'] = 'View simplemod';
-$string['simplemodfieldset'] = 'Custom example fieldset';
-$string['simplemodname'] = 'simplemod name';
-$string['simplemodname_help'] = 'This is the content of the help tooltip associated with the simplemodname field. Markdown syntax is supported.';
-$string['simplemod'] = 'simplemod';
-$string['pluginadministration'] = 'simplemod administration';
-$string['pluginname'] = 'simplemod';
+$string['modulename'] = 'collaborate';
+$string['modulenameplural'] = 'collaborates';
+$string['modulename_help'] = 'Use the collaborate module for... | The collaborate module allows...';
+$string['collaborate:addinstance'] = 'Add a new collaborate';
+$string['collaborate:submit'] = 'Submit collaborate';
+$string['collaborate:view'] = 'View collaborate';
+$string['collaboratefieldset'] = 'Custom example fieldset';
+$string['collaboratename'] = 'collaborate name';
+$string['collaboratename_help'] = 'This is the content of the help tooltip associated with the collaboratename field. Markdown syntax is supported.';
+$string['collaborate'] = 'collaborate';
+$string['pluginadministration'] = 'collaborate administration';
+$string['pluginname'] = 'collaborate';
 
-// Mod form specific simplemod settings.
+// Mod form specific collaborate settings.
 $string['title'] = 'Activity Title: ';

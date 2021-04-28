@@ -15,25 +15,25 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Define all the restore steps that will be used by the restore_simplemod_activity_task
+ * Define all the restore steps that will be used by the restore_collaborate_activity_task
  *
- * @package   mod_simplemod
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_simplemod
- * @see https://github.com/justinhunt/moodle-mod_simplemod
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 
 /**
- * Structure step to restore one simplemod activity
+ * Structure step to restore one collaborate activity
  *
- * @package   mod_simplemod
+ * @package   mod_collaborate
  * @category  backup
  * @copyright 2019 Richard Jones richardnz@outlook.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class restore_simplemod_activity_structure_step extends restore_activity_structure_step {
+class restore_collaborate_activity_structure_step extends restore_activity_structure_step {
 
     /**
      * Defines structure of path elements to be processed during the restore
@@ -43,7 +43,7 @@ class restore_simplemod_activity_structure_step extends restore_activity_structu
     protected function define_structure() {
 
         $paths = array();
-        $paths[] = new restore_path_element('simplemod', '/activity/simplemod');
+        $paths[] = new restore_path_element('collaborate', '/activity/collaborate');
 
         // Return the paths wrapped into standard activity structure.
         return $this->prepare_activity_structure($paths);
@@ -54,7 +54,7 @@ class restore_simplemod_activity_structure_step extends restore_activity_structu
      *
      * @param array $data parsed element data
      */
-    protected function process_simplemod($data) {
+    protected function process_collaborate($data) {
         global $DB;
 
         $data = (object)$data;
@@ -69,8 +69,8 @@ class restore_simplemod_activity_structure_step extends restore_activity_structu
             $data->timemodified = time();
         }
 
-        // Create the simplemod instance.
-        $newitemid = $DB->insert_record('simplemod', $data);
+        // Create the collaborate instance.
+        $newitemid = $DB->insert_record('collaborate', $data);
         $this->apply_activity_instance($newitemid);
     }
 
@@ -78,7 +78,7 @@ class restore_simplemod_activity_structure_step extends restore_activity_structu
      * Post-execution actions
      */
     protected function after_execute() {
-        // Add simplemod related files, no need to match by itemname (just internally handled context).
-        $this->add_related_files('mod_simplemod', 'intro', null);
+        // Add collaborate related files, no need to match by itemname (just internally handled context).
+        $this->add_related_files('mod_collaborate', 'intro', null);
     }
 }

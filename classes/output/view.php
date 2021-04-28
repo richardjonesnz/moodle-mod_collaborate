@@ -15,16 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Prints a particular instance of simplemod
+ * Prints a particular instance of collaborate
  *
- * @package    mod_simplemod
+ * @package    mod_collaborate
  * @copyright  202 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_simplemod
- * @see https://github.com/justinhunt/moodle-mod_simplemod
+ * @see https://github.com/moodlehq/moodle-mod_collaborate
+ * @see https://github.com/justinhunt/moodle-mod_collaborate
  */
 
-namespace mod_simplemod\output;
+namespace mod_collaborate\output;
 
 use renderable;
 use renderer_base;
@@ -41,12 +41,12 @@ use stdClass;
 
 class view implements renderable, templatable {
 
-    protected $simplemod;
+    protected $collaborate;
     protected $id;
 
-    public function __construct($simplemod, $id) {
+    public function __construct($collaborate, $id) {
 
-        $this->simplemod = $simplemod;
+        $this->collaborate = $collaborate;
         $this->id = $id;
     }
     /**
@@ -59,10 +59,10 @@ class view implements renderable, templatable {
 
         $data = new stdClass();
 
-        $data->title = $this->simplemod->title;
+        $data->title = $this->collaborate->title;
         // Moodle handles processing of std intro field.
-        $data->body = format_module_intro('simplemod',
-                $this->simplemod, $this->id);
+        $data->body = format_module_intro('collaborate',
+                $this->collaborate, $this->id);
 
         return $data;
     }
