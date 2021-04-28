@@ -63,6 +63,7 @@ class view implements renderable, templatable {
         // Moodle handles processing of std intro field.
         $data->body = format_module_intro('collaborate',
                 $this->collaborate, $this->id);
+       $data->message = get_string('welcome', 'mod_collaborate');
 
         return $data;
     }

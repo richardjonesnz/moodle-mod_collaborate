@@ -29,11 +29,13 @@
     Context variables required for this template:
     * title String a page title.
     * body String of html code the formatted module intro.
+    * message - a welocme message
 
     Example context (json):
         {
          "title": "My heading",
-         "body": "<p>My html body</p>"
+         "body": "<p>My html body</p>",
+         "message": "Hello there"
         }
 }}
 <div class="card">
@@ -41,4 +43,5 @@
         <h2 class="card-title">{{title}}</h2>
         {{{body}}}
     </div>
+    <p>{{message}}</p>
 </div>
