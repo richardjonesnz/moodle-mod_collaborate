@@ -47,6 +47,7 @@ $string['pluginname'] = 'collaborate';
 $string['title'] = 'Activity Title: ';
 $string['title_help'] = 'Please select a suitable title for your collaborate main page.';
 $string['welcome'] = 'Welcome to Collaborate!';
+$string['texteditor'] = 'Instructions {$a}';
 
 // Event.
 $string['pageviewed'] = 'Module page viewed';
