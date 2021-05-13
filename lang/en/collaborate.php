@@ -51,3 +51,11 @@ $string['texteditor'] = 'Instructions {$a}';
 
 // Event.
 $string['pageviewed'] = 'Module page viewed';
+
+// Button labels on main page.
+$string['studenta'] = 'Partner A';
+$string['studentb'] = 'Partner B';
+
+// Showpage.
+$string['returnview'] = 'Main page';
+$string['user'] = 'User: {$a}';
