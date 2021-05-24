@@ -31,6 +31,7 @@ use renderer_base;
 use templatable;
 use stdClass;
 use moodle_url;
+use context_module;
 
 /**
  * Collaborate: Create a new showpage page renderable object
@@ -45,12 +46,14 @@ class showpage implements renderable, templatable {
     protected $collaborate;
     protected $cm;
     protected $page;
+    protected $context;
 
     public function __construct($collaborate, $cm, $page) {
 
         $this->collaborate = $collaborate;
         $this->cm = $cm;
         $this->page = $page;
+        $this->context = context_module::instance($this->cm->id);
     }
     /**
      * Export this data so it can be used as the context for a mustache template.
@@ -67,8 +70,24 @@ class showpage implements renderable, templatable {
         $data->user = get_string('user', 'mod_collaborate', strtoupper($this->page));
 
         // Get the content from the database.
-        $content = ($this->page == 'a') ? $this->collaborate->instructionsa : $this->collaborate->instructionsb;
+        $content = ($this->page == 'a') ? $this->collaborate->instructionsa
+                                        : $this->collaborate->instructionsb;
         $data->body = $content;
+
+        // Process the editor area data to display the body correctly.
+        $filearea = 'instructions' . $this->page;
+        $context = context_module::instance($this->cm->id);
+        $content = file_rewrite_pluginfile_urls($content, 'pluginfile.php', $this->context->id,
+                'mod_collaborate', $filearea, $this->collaborate->id);
+
+        // Run the content through format_text to enable streaming video etc.
+        $formatoptions = new stdClass;
+        $formatoptions->overflowdiv = true;
+        $formatoptions->context = $this->context;
+        $format = ($this->page == 'a') ? $this->collaborate->instructionsaformat
+                                       : $this->collaborate->instructionsbformat;
+
+        $data->body = format_text($content, $format, $formatoptions);
 
         // Get a return url back to view page.
         $urlv = new moodle_url('/mod/collaborate/view.php', ['id' => $this->cm->id]);
