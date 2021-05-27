@@ -23,7 +23,12 @@
  * @see https://github.com/moodlehq/moodle-mod_collaborate
  * @see https://github.com/justinhunt/moodle-mod_collaborate */
 
-use mod_collaborate\output\showpage;
+use \core\output\notification;
+use \mod_collaborate\local\submissions;
+use \mod_collaborate\local\submission_form;
+use \mod_collaborate\local\collaborate_editor;
+use \mod_collaborate\output\showpage;
+
 require_once('../../config.php');
 
 // The user page id and the collaborate instance id.
@@ -47,11 +52,35 @@ require_login($course, true, $cm);
 $PAGE->set_title(format_string($collaborate->name));
 $PAGE->set_heading(format_string($course->fullname));
 
+// Instantiate the form and set the return url.
+$form = new submission_form(null, ['context' => $context, 'cid' => $cid, 'page' => $page]);
+$returnurl = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $cid, 'page' => $page]);
+
+// Do we have any data - save it and notify the user.
+if ($data = $form->get_data()) {
+    // Save the data here.
+    submissions::save_submission($data, $context, $cid, $page);
+    redirect ($returnurl, get_string('submissionupdated', 'mod_collaborate'), null, notification::NOTIFY_SUCCESS);
+}
+
+// Set the saved data (if any) to the form.
+$data = new stdClass();
+$data = submissions::get_submission($cid, $USER->id, $page);
+if ($data) {
+    $options = collaborate_editor::get_editor_options($context);
+    $data = file_prepare_standard_editor($data, 'submission', $options, $context, 'mod_collaborate', 'submission',
+            $data->id);
+    $form->set_data($data);
+}
+
 // Start output to browser.
 echo $OUTPUT->header();
 
 // Create output object and render it using the template.
 echo $OUTPUT->render(new showpage($collaborate, $cm, $page));
+
+// Show the form on the page.
+$form->display();
 
 // End output to browser.
 echo $OUTPUT->footer();
