@@ -36,8 +36,10 @@ use context_module;
 /**
  * Collaborate: Create a new showpage page renderable object
  *
- * @param string title - intro page title.
- * @param int height - course module id.
+ * @param object collaborate - collaborate instance
+ * @param object cm - course module
+ * @param string page - user page letter
+ * @param object context - the module context
  * @copyright  2020 Richard Jones <richardnz@outlook.com>
  */
 

@@ -67,5 +67,15 @@ $capabilities = array(
             'guest' => CAP_ALLOW,
             'user' => CAP_ALLOW,
         )
+    ),
+    'mod/collaborate:viewreportstab' => array (
+        'riskbitmask' => RISK_PERSONAL,
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_MODULE,
+        'archetypes' => array (
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        ),
+        'clonepermissionsfrom' => 'moodle/course:manageactivities'
     )
 );
