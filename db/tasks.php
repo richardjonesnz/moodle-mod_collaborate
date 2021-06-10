@@ -12,22 +12,27 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>./**
 
-/**
- * Defines the version and other meta-info about the plugin
+ /* This file keeps track of scheduled tasks
  *
  * @package    mod_collaborate
  * @copyright  2019 Richard Jones richardnz@outlook.com
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_collaborate
- * @see https://github.com/justinhunt/moodle-mod_collaborate
+ * @see https://github.com/moodlehq/moodle-mod_newmodule
+ * @see https://github.com/justinhunt/moodle-mod_pairwork
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_collaborate';
-$plugin->version = 2021060605;
-$plugin->release = 'v1.1';
-$plugin->requires = 2020060900;
-$plugin->maturity = MATURITY_BETA;
+$tasks = [
+    [
+        'classname' => 'mod_collaborate\task\scheduled_export',
+        'blocking' => 0,
+        'minute' => '*/1',
+        'hour' => '*',
+        'day' => '*',
+        'dayofweek' => '*',
+        'month' => '*'
+    ]
+];

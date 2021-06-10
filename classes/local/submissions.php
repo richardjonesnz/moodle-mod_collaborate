@@ -24,6 +24,8 @@ namespace mod_collaborate\local;
 use \mod_collaborate\local\collaborate_editor;
 use \mod_collaborate\local\debugging;
 use \mod_collaborate\local\submission_form;
+use core\dataformat;
+
 defined('MOODLE_INTERNAL') || die();
 
 class submissions {
@@ -187,5 +189,64 @@ class submissions {
             get_string('grade',  'core')];
 
     }
+   /**
+    *  Export all submissions of all Collaborate instances.
+    *
+    * @return none.
+    */
+    public static function export_all_submissions() {
+            global $DB;
 
+        // Get the all Collaborate instances.
+
+         $sql = "SELECT s.id, u.firstname, u.lastname, s.submission,  s.grade,
+                        c.id AS cid, c.course
+                  FROM {collaborate_submissions} AS s
+                  JOIN {collaborate} AS c ON s.collaborateid = c.id
+                  JOIN {user} AS u ON s.userid = u.id
+                  WHERE u.id <> 0";
+
+        $records = $DB->get_records_sql($sql);
+        $submissions = array();
+
+        // Locate the corresponding entries in the submissions table.
+        foreach ($records as $record) {
+
+            $data = array();
+
+            // Get the correct context for pluginfiles and formatting.
+            $courseid = $record->course;
+            $cid = $record->cid;
+            $cm = get_coursemodule_from_instance('collaborate', $cid, $courseid, false, MUST_EXIST);
+            $course = $DB->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
+            $context = \context_module::instance($cm->id);
+
+            // Extract the wanted data.
+            $data['id'] = $record->id;
+            $data['firstname'] = $record->firstname;
+            $data['lastname'] = $record->lastname;
+
+            // Process media files (for printing).
+            $content = \file_rewrite_pluginfile_urls($record->submission, 'pluginfile.php',
+                    $context->id,'mod_collaborate', 'submission', $record->id);
+
+            // Format submission.
+            $formatoptions = new \stdClass;
+            $formatoptions->noclean = true;
+            $formatoptions->overflowdiv = true;
+            $formatoptions->context = $context;
+
+            $data['submission'] = \format_text($content, FORMAT_HTML, $formatoptions);
+            $data['grade'] = $record->grade;
+            $submissions[] = $data;
+        }
+
+        // Export the submissions to a pdf file.
+        $fields = self::get_export_headers();
+        $download_submissions = new \ArrayObject($submissions);
+        $iterator = $download_submissions->getIterator();
+        $dataformat = 'pdf';
+        $filename = clean_filename('export_submissions_' . time());
+        $exportfile = dataformat::write_data($filename, $dataformat, $fields, $iterator);
+   }
 }

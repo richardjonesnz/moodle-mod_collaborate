@@ -94,3 +94,6 @@ $string['grade_saved'] = 'Grade saved';
 
 // Navigation.
 $string['namechange'] = 'Change name';
+
+// Tasks.
+$string['exportall'] = 'Export all submissions';

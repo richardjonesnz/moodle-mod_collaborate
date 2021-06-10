@@ -15,19 +15,35 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the version and other meta-info about the plugin
+ * Class for handling a scheduled task.
  *
- * @package    mod_collaborate
- * @copyright  2019 Richard Jones richardnz@outlook.com
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @see https://github.com/moodlehq/moodle-mod_collaborate
- * @see https://github.com/justinhunt/moodle-mod_collaborate
+ * @package   mod_collaborate
+ * @copyright 2020 Richard Jones https://richardnz.net
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+namespace mod_collaborate\task;
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'mod_collaborate';
-$plugin->version = 2021060605;
-$plugin->release = 'v1.1';
-$plugin->requires = 2020060900;
-$plugin->maturity = MATURITY_BETA;
+/**
+ * A scheduled task.
+ *
+ * @package    mod_collaborate
+ * @since      Moodle 2.7
+ * @copyright  2015 Flash Gordon http://www.flashgordon.com
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class scheduled_export extends \core\task\scheduled_task {
+
+    public function get_name() {
+        // Shown in admin screens
+        return get_string('exportall', 'mod_collaborate');
+
+    }
+     /**
+     *  Run all the tasks
+     */
+     public function execute() {
+       \mod_collaborate\local\submissions::export_all_submissions();
+    }
+}
