@@ -1,0 +1,62 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+{{!
+    @template mod_collaborate/namechangepage
+    Moodle renders a simple table of module names with links and edit button
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * heading String Heading of the report.
+    * headers String array of header data
+    * rows Mixed array of row data:
+      * section String topic/week containing module instances
+      * name String name of each Collaborate instance
+
+        Example context (json):
+        {
+         "heading": "My heading",
+         "headers": "["col1", "col2", ...]",
+         "rows": "["["topic1", "topic2", ...], ["Test collaborate", "another Collaborate", ...]"]"
+        }
+}}
+
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">{{heading}}</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            {{#headers}}
+              <th>{{.}}</th>
+            {{/headers}}
+          </thead>
+          <tbody>
+            {{#rows}}
+              <tr class="danger">
+                <td>{{section}}</td>
+                <td class={{class}}>{{name}}</td>
+                <td><a href="{{{editurl}}}">{{# str }} edit, core {{/ str }}</a></td>
+              </tr>
+            {{/rows}}
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

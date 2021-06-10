@@ -91,3 +91,6 @@ $string['gradingheader'] = 'Grade a submission';
 $string['currentgrade'] = 'Current grade: ';
 $string['user'] = 'User: ';
 $string['grade_saved'] = 'Grade saved';
+
+// Navigation.
+$string['namechange'] = 'Change name';
