@@ -1,0 +1,63 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>;.
+}}
+
+{{!
+    @template mod_collaborate/grading
+
+    Renders a grading form.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * pageheader String a page title.
+    * title String a card title.
+    * firstname String student name.
+    * lastname String student name.
+    * grade Number student grade
+    * submission String filtered text of student submission
+
+    Example context (json):
+        {
+         "pageheader": "My heading",
+         "title": "My title",
+         "firstname": "Anika",
+         "lastname": "Moa",
+         "grade": "100",
+         "submission": "my longer text submission"
+        }
+}}
+
+<div class="container">
+  <h1>{{pageheader}}</h1>
+  <h3>{{title}}</h3>
+  <div class="card bg-primary text-light">
+    <div class="card-body">
+        {{# str }} user, mod_collaborate {{/ str }} {{firstname}} {{lastname}}<br />
+        {{# str }} currentgrade, mod_collaborate {{/ str }} {{grade}}<br />
+    </div>
+  </div>
+  <div class="card bg-light">
+    <div class="card-body ">
+        {{{submission}}}<br />
+    </div>
+  </div>
+  <br />
+</div>
