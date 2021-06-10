@@ -293,7 +293,19 @@ function collaborate_print_recent_mod_activity($activity, $courseid, $detail, $m
 function collaborate_cron () {
     return true;
 }
-
+/**
+ * A task called from adhoc
+ *
+ * @param progress_trace trace object
+ * @param $data - form data to update a database record
+ */
+function collaborate_do_adhoc_task(progress_trace $trace, $data) {
+    global $DB;
+    $trace->output('executing dotask');
+    if ($DB->record_exists('collaborate', array('id' => $data->id))) {
+        $DB->update_record('collaborate', $data);
+    }
+}
 /**
  * Returns all other caps used in the module
  *

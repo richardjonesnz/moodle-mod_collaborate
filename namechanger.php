@@ -57,10 +57,16 @@ if ($mform->is_cancelled()) {
     exit;
 }
 
-// If we have data save it and return.
+//if we have data, then our job here is to save it and return.
 if ($data = $mform->get_data()) {
-    $DB->update_record('collaborate', $data);
-    redirect($PAGE->url, get_string('updated', 'core', $data->name), 2, notification::NOTIFY_SUCCESS);
+
+        // $DB->update_record('collaborate',$data);
+
+        // Replace update with call to ad_hoc task
+        $updatetask = new \mod_collaborate\task\collaborate_adhoc();
+        $updatetask->set_custom_data($data);
+        \core\task\manager::queue_adhoc_task($updatetask);
+        redirect($PAGE->url,get_string('updated','core',$data->name),2);
 }
 // Start output to browser.
 echo $OUTPUT->header();
