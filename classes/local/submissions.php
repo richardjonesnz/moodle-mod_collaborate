@@ -120,7 +120,13 @@ class submissions {
         global $DB;
         $DB->set_field('collaborate_submissions', 'grade', $grade, ['id' => $sid]);
     }
-
+    /**
+     * Return an aggregated grade to use in the gradebook
+     *
+     * @param array of objects $attemps the submission attempt records.
+     * @param int $grade the submission grade.
+     * @return none.
+     */
     public static function grade_user($attempts) {
         global $DB;
         // We could use different strategies here.
@@ -131,4 +137,55 @@ class submissions {
         }
         return $maxscore;
     }
+
+    /**
+    *  Get the student submission records to be saved to a file.
+    *
+    * @param object $collaborate, the Collaborate instance cotaining submissions
+    * @param object $context, the module context.
+    * @return array of objects $records, the records to be exported.
+    */
+    public static function get_export_data($collaborate, $context) {
+        global $DB;
+
+        $sql = "SELECT s.id, u.firstname, u.lastname, s.submission,  s.grade
+                  FROM {collaborate_submissions} AS s
+                  JOIN {collaborate} AS c ON s.collaborateid = c.id
+                  JOIN {user} AS u ON s.userid = u.id
+                  WHERE u.id <> 0
+                    AND s.collaborateid = :cid";
+
+        $records = $DB->get_records_sql($sql, ['cid' => $collaborate->id]);
+
+        // Process the submissions
+        foreach ($records as $record) {
+
+            $content = file_rewrite_pluginfile_urls($record->submission, 'pluginfile.php',
+                    $context->id,'mod_collaborate', 'submission', $record->id);
+
+            // Format submission.
+            $formatoptions = new \stdClass;
+            $formatoptions->noclean = true;
+            $formatoptions->overflowdiv = true;
+            $formatoptions->context = $context;
+
+            $record->submission = format_text($content, FORMAT_HTML, $formatoptions);
+        }
+        return $records;
+    }
+    /**
+    *  Get the column headers for the export file.
+    *
+    * @return String array.
+    */
+     public static function get_export_headers() {
+        return [
+            get_string('id', 'mod_collaborate'),
+            get_string('firstname', 'core'),
+            get_string('lastname', 'core'),
+            get_string('submission','mod_collaborate'),
+            get_string('grade',  'core')];
+
+    }
+
 }

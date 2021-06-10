@@ -37,6 +37,7 @@ $string['collaborate:addinstance'] = 'Add a new collaborate';
 $string['collaborate:submit'] = 'Submit collaborate';
 $string['collaborate:view'] = 'View collaborate';
 $string['collaborate:viewreportstab'] = 'View reports';
+$string['collaborate:exportsubmissions'] = 'Export student submissions';
 $string['collaboratefieldset'] = 'Custom example fieldset';
 $string['collaboratename'] = 'collaborate name';
 $string['collaboratename_help'] = 'This is the content of the help tooltip associated with the collaboratename field. Markdown syntax is supported.';
@@ -81,6 +82,7 @@ $string['submissiongraded'] = 'Submission graded';
 
 // Reports.
 $string['id'] = 'Id';
+$string['exportlink'] = 'Export as pdf';
 
 // Grading form.
 $string['grade'] = 'Grade';
