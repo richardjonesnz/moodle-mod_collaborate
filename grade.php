@@ -26,9 +26,19 @@
 require_once(__DIR__ . "../../../config.php");
 $id = required_param('id', PARAM_INT);// Course module ID.
 
-// Item number may be != 0 for activities that allow more than one grade per user.
-$itemnumber = optional_param('itemnumber', 0, PARAM_INT);
-$userid = optional_param('userid', 0, PARAM_INT); // Graded user ID (optional).
+$cm = get_coursemodule_from_id('collaborate', $id, 0, false, MUST_EXIST);
+$course = $DB->get_record('course', array('id' => $cm->course),
+        '*', MUST_EXIST);
+$collaborate = $DB->get_record('collaborate',
+            array('id' => $cm->instance), '*', MUST_EXIST);
 
-// In the simplest case just redirect to the view page.
-redirect('view.php?id='.$id);
+require_login($course, false, $cm);
+
+$modulecontext = context_module::instance($cm->id);
+// Re-direct the user.
+if (has_capability('mod/collaborate:gradesubmission', $modulecontext)) {
+    $url = new moodle_url('reports.php', ['cid' => $collaborate->id]);
+} else {
+    $url = new moodle_url('view.php', array('id' => $id));
+}
+redirect($url);
