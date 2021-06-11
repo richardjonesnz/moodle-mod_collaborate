@@ -53,6 +53,8 @@ $string['texteditor'] = 'Instructions {$a}';
 
 // Event.
 $string['pageviewed'] = 'Module page viewed';
+$string['submission_submitted'] = 'Submission submitted';
+$string['submission_graded'] = 'Submission graded';
 
 // Button labels on main page.
 $string['studenta'] = 'Partner A';

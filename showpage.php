@@ -58,8 +58,17 @@ $returnurl = new moodle_url('/mod/collaborate/showpage.php', ['cid' => $cid, 'pa
 
 // Do we have any data - save it and notify the user.
 if ($data = $form->get_data()) {
+
     // Save the data here.
     submissions::save_submission($data, $context, $cid, $page);
+
+    // Log the submission submitted event.
+    $event = \mod_collaborate\event\submission_submitted::create(
+            ['context' => $PAGE->context, 'objectid' => $PAGE->cm->instance]);
+    $event->add_record_snapshot('course', $PAGE->course);
+    $event->add_record_snapshot($PAGE->cm->modname, $collaborate);
+    $event->trigger();
+
     redirect ($returnurl, get_string('submissionupdated', 'mod_collaborate'), null, notification::NOTIFY_SUCCESS);
 }
 

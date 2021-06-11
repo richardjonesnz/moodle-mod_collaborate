@@ -60,7 +60,12 @@ $completion = new completion_info($course);
 $completion->set_module_viewed($cm);
 
 // Let's add the module viewed event.
-$event = \mod_collaborate\event\page_viewed::create(['context' => $PAGE->context, 'objectid' => $id]);
+$event = \mod_collaborate\event\page_viewed::create(
+        ['context' => $PAGE->context,
+         'objectid' => $PAGE->cm->instance]);
+$event->add_record_snapshot('course_modules', $cm);
+$event->add_record_snapshot('course', $PAGE->course);
+$event->add_record_snapshot($PAGE->cm->modname, $collaborate);
 $event->trigger();
 
 // Check for intro page content.
