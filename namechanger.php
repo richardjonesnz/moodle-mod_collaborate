@@ -32,7 +32,7 @@ use \mod_collaborate\output\namechanger;
 require_once('../../config.php');
 
 // Fetch URL parameters.
-$courseid = required_param('courseid', PARAM_INT);   // course.
+$courseid = required_param('courseid', PARAM_INT);
 $action = optional_param('action', 'list', PARAM_TEXT);
 $actionitem = optional_param('actionitem', 0, PARAM_INT);
 
@@ -57,16 +57,16 @@ if ($mform->is_cancelled()) {
     exit;
 }
 
-//if we have data, then our job here is to save it and return.
+// If we have data, then our job here is to save it and return.
 if ($data = $mform->get_data()) {
 
-        // $DB->update_record('collaborate',$data);
+    // $DB->update_record('collaborate',$data);
 
-        // Replace update with call to ad_hoc task
-        $updatetask = new \mod_collaborate\task\collaborate_adhoc();
-        $updatetask->set_custom_data($data);
-        \core\task\manager::queue_adhoc_task($updatetask);
-        redirect($PAGE->url,get_string('updated','core',$data->name),2);
+    // Replace update with call to ad_hoc task.
+    $updatetask = new \mod_collaborate\task\collaborate_adhoc();
+    $updatetask->set_custom_data($data);
+    \core\task\manager::queue_adhoc_task($updatetask);
+    redirect($PAGE->url, get_string('updated', 'core', $data->name), 2);
 }
 // Start output to browser.
 echo $OUTPUT->header();
@@ -78,7 +78,7 @@ if ($action == "edit") {
     $data->courseid = $courseid;
     $collaborate = $DB->get_record('collaborate', ['id' => $actionitem]);
     if (!$collaborate) {
-        redirect($PAGE->url,'nodata', 2);
+        redirect($PAGE->url, 'nodata', 2);
     }
     $data->id = $collaborate->id;
     $data->name = $collaborate->name;

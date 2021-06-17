@@ -35,7 +35,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 class collaborate_adhoc extends \core\task\adhoc_task {
 
-     public function execute(){
+    public function execute() {
         $trace = new \text_progress_trace();
         $cd =  $this->get_custom_data();
         collaborate_do_adhoc_task($trace, $cd);

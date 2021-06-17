@@ -81,9 +81,9 @@ function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_for
     $collaborate->timecreated = time();
 
     // Add new instance with dummy data for the editor fields.
-    $collaborate->instructionsa ='a';
+    $collaborate->instructionsa = 'a';
     $collaborate->instructionsaformat = FORMAT_HTML;
-    $collaborate->instructionsb ='b';
+    $collaborate->instructionsb = 'b';
     $collaborate->instructionsbformat = FORMAT_HTML;
 
     $collaborate->id = $DB->insert_record('collaborate', $collaborate);
@@ -96,7 +96,7 @@ function collaborate_add_instance(stdClass $collaborate, mod_collaborate_mod_for
     $names = collaborate_editor::get_editor_names();
 
     foreach ($names as $name) {
-        $collaborate =  file_postupdate_standard_editor($collaborate, $name, $options,
+        $collaborate = file_postupdate_standard_editor($collaborate, $name, $options,
                 $context, 'mod_collaborate', $name, $collaborate->id);
     }
 
@@ -133,7 +133,7 @@ function collaborate_update_instance(stdClass $collaborate, mod_collaborate_mod_
     $names = collaborate_editor::get_editor_names();
 
     foreach ($names as $name) {
-        $collaborate =  file_postupdate_standard_editor($collaborate, $name, $options,
+        $collaborate = file_postupdate_standard_editor($collaborate, $name, $options,
                 $context, 'mod_collaborate', $name, $collaborate->id);
 
     }
@@ -167,11 +167,12 @@ function collaborate_refresh_events($courseid = 0) {
             return true;
         }
     }
-
+    /*
     foreach ($collaborates as $collaborate) {
-        // Create a function such as the one below to deal with updating calendar events.
-        // collaborate_update_events($collaborate);
+        Create a function such as the one below to deal with updating calendar events.
+        collaborate_update_events($collaborate);
     }
+    */
 
     return true;
 }
@@ -382,7 +383,7 @@ function collaborate_grade_item_update(stdClass $collaborate, $grades = null) {
     // Implementing reset is covered in the documentation. https://docs.moodle.org/dev/Gradebook_API.
     if ($grades === 'reset') {
         $item['reset'] = true;
-        $grades=null;
+        $grades = null;
     }
     // Dropped return value into status to help debugging.
     $status = grade_update('mod/collaborate', $collaborate->course, 'mod', 'collaborate',
@@ -419,12 +420,12 @@ function collaborate_update_grades(stdClass $collaborate, $userid = 0) {
     // Do we have grades?
     if ($grades) {
         collaborate_grade_item_update($collaborate, $grades);
-    } elseif ($userid) {
+    } else if ($userid) {
 
         // Single user specified, create initial grade item.
         $grade = new stdClass();
         $grade->userid = $userid;
-        $grade->rawgrade = NULL;
+        $grade->rawgrade = null;
         collaborate_grade_item_update($collaborate, $grade);
     } else {
         collaborate_grade_item_update($collaborate);
@@ -554,7 +555,7 @@ function collaborate_rescale_activity_grades($course, $cm, $oldmin, $oldmax, $ne
 function collaborate_get_file_areas($course, $cm, $context) {
     return ['instructionsa' => 'Instructions for partner A',
             'instructionsb' => 'Instructions for partner B',
-            'submissions' => 'Student submissions'];
+            'submission' => 'Student submissions'];
 }
 
 /**

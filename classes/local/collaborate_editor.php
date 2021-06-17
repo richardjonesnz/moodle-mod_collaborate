@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>;;.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Class providing custom editors
  *
@@ -49,7 +49,7 @@ class collaborate_editor {
      * @return string array of editor names.
      */
     public static function get_editor_names() {
-      return ['instructionsa', 'instructionsb'];
+        return ['instructionsa', 'instructionsb'];
     }
     /**
      * Editor options.

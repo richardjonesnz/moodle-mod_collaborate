@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>;;.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Form for student submissions.
  *
@@ -24,7 +24,6 @@ namespace mod_collaborate\local;
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once('../../config.php');
 require_once('../../lib/formslib.php');
 
 // The form class.
@@ -35,7 +34,7 @@ class grading_form extends \moodleform {
         global $CFG;
         $mform = $this->_form;
 
-        // grades available.
+        // Grades available.
         $grades = array();
         for ($m = 0; $m <= $this->_customdata['maxgrade']; $m++) {
             $grades[$m] = '' . $m;

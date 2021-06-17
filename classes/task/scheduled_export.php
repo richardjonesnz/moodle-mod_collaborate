@@ -36,14 +36,14 @@ defined('MOODLE_INTERNAL') || die();
 class scheduled_export extends \core\task\scheduled_task {
 
     public function get_name() {
-        // Shown in admin screens
+        // Shown in admin screens.
         return get_string('exportall', 'mod_collaborate');
 
     }
-     /**
-     *  Run all the tasks
+    /**
+     *  Run all the tasks.
      */
-     public function execute() {
-       \mod_collaborate\local\submissions::export_all_submissions();
+    public function execute() {
+        \mod_collaborate\local\submissions::export_all_submissions();
     }
 }

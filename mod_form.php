@@ -73,7 +73,7 @@ class mod_collaborate_mod_form extends moodleform_mod {
 
         // Add two editors for partner instructions.
         $names = collaborate_editor::get_editor_names();
-        foreach($names as $name) {
+        foreach ($names as $name) {
             collaborate_editor::add_editor($mform, $this->context, $name);
         }
 
@@ -88,7 +88,7 @@ class mod_collaborate_mod_form extends moodleform_mod {
     }
 
     // Standard Moodle function for editor area preprocessing.
-    function data_preprocessing(&$default_values) {
+    public function data_preprocessing(&$default_values) {
 
         if ($this->current->instance) {
 

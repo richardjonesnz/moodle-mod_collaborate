@@ -42,12 +42,12 @@ require_capability('mod/collaborate:exportsubmissions', $context);
 
 // Get the data and set up an iterator for the pdf export.
 $records = submissions::get_export_data($collaborate, $context);
-$download_submissions = new ArrayObject($records);
-$iterator = $download_submissions->getIterator();
+$downloadsubmissions = new ArrayObject($records);
+$iterator = $downloadsubmissions->getIterator();
 $fields = submissions::get_export_headers();
 $dataformat = 'pdf';
 $filename = clean_filename('export_submissions' . time());
 dataformat::download_data($filename, $dataformat, $fields, $iterator);
 
 // We are actually only showing a dialog box.
-echo $OUTPUT->download_dataformat_selector(get_string('download', 'admin'), 'reports.php');    
+echo $OUTPUT->download_dataformat_selector(get_string('download', 'admin'), 'reports.php');

@@ -43,7 +43,15 @@ class restore_collaborate_activity_structure_step extends restore_activity_struc
     protected function define_structure() {
 
         $paths = array();
+        $userinfo = $this->get_setting_value('userinfo');
         $paths[] = new restore_path_element('collaborate', '/activity/collaborate');
+
+        if ($userinfo) {
+
+            $paths[] = new restore_path_element('collaborate_submissions',
+                    '/activity/collaborate/submissions/submission');
+        }
+
 
         // Return the paths wrapped into standard activity structure.
         return $this->prepare_activity_structure($paths);
@@ -74,11 +82,28 @@ class restore_collaborate_activity_structure_step extends restore_activity_struc
         $this->apply_activity_instance($newitemid);
     }
 
+    // Process the submission data.
+    protected function process_collaborate_submissions($data) {
+        global $DB;
+        $data = (object) $data;
+        $oldid = $data->id;
+        $data->collaborateid = $this->get_new_parentid('collaborate');
+
+        $newitemid = $DB->insert_record('collaborate_submissions', $data);
+        $this->set_mapping('collaborate_submission', $oldid, $newitemid, true);
+
+    }
     /**
      * Post-execution actions
      */
     protected function after_execute() {
-        // Add collaborate related files, no need to match by itemname (just internally handled context).
+
+        // Add collaborate related files for editor areas.
         $this->add_related_files('mod_collaborate', 'intro', null);
+        $this->add_related_files('mod_collaborate', 'instructionsa', 'collaborate');
+        $this->add_related_files('mod_collaborate', 'instructionsb', 'collaborate');
+        $this->add_related_files('mod_collaborate', 'submission', 'collaborate_submission');
+
+        // If anything else needed fixing up we could add it here.
     }
 }

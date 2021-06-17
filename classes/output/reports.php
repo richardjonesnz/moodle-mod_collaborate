@@ -92,7 +92,7 @@ class reports implements renderable, templatable {
             $data['id'] = $record->id;
             $data['title'] = $this->collaborate->title;
 
-           // Format the submission to grab text only.
+            // Format the submission to grab text only.
             $s = \format_string($record->submission);
             $s = \strip_tags($s);
             $data['submission'] = $s;
@@ -115,7 +115,7 @@ class reports implements renderable, templatable {
 
         return $submissions;
     }
-     /**
+    /**
      * Set the headers to match the record query and required report fields.
      *
      * @return string array of report column headers.
@@ -124,9 +124,10 @@ class reports implements renderable, templatable {
         return [
             get_string('id', 'mod_collaborate'),
             get_string('title', 'mod_collaborate'),
-            get_string('submission','mod_collaborate'),
+            get_string('submission', 'mod_collaborate'),
             get_string('firstname', 'core'),
             get_string('lastname', 'core'),
-            get_string('grade',  'core')];
+            get_string('grade', 'core')
+        ];
     }
 }

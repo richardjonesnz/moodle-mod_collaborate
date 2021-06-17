@@ -12,7 +12,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>;;.
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  * Class handling a student submission.
  *
@@ -40,7 +40,7 @@ class submissions {
     public static function save_submission($data, $context, $cid, $page) {
         global $DB, $USER;
         $exists = self::get_submission($cid, $USER->id, $page);
-        if($exists) {
+        if ($exists) {
             $DB->delete_records('collaborate_submissions',
                     ['collaborateid' => $cid, 'userid' => $USER->id, 'page' => $page]);
         }
@@ -117,7 +117,6 @@ class submissions {
      * @param int $grade the submission grade.
      * @return none.
      */
-
     public static function update_grade($sid, $grade) {
         global $DB;
         $DB->set_field('collaborate_submissions', 'grade', $grade, ['id' => $sid]);
@@ -141,29 +140,30 @@ class submissions {
     }
 
     /**
-    *  Get the student submission records to be saved to a file.
-    *
-    * @param object $collaborate, the Collaborate instance cotaining submissions
-    * @param object $context, the module context.
-    * @return array of objects $records, the records to be exported.
-    */
+     *  Get the student submission records to be saved to a file.
+     *
+     * @param object $collaborate, the Collaborate instance cotaining submissions
+     * @param object $context, the module context.
+     * @return array of objects $records, the records to be exported.
+     */
     public static function get_export_data($collaborate, $context) {
         global $DB;
 
         $sql = "SELECT s.id, u.firstname, u.lastname, s.submission,  s.grade
-                  FROM {collaborate_submissions} AS s
-                  JOIN {collaborate} AS c ON s.collaborateid = c.id
-                  JOIN {user} AS u ON s.userid = u.id
+                  FROM {collaborate_submissions} s
+                  JOIN {collaborate} c ON s.collaborateid = c.id
+                  JOIN {user} u ON s.userid = u.id
                   WHERE u.id <> 0
                     AND s.collaborateid = :cid";
 
         $records = $DB->get_records_sql($sql, ['cid' => $collaborate->id]);
 
-        // Process the submissions
+        // Process the submissions.
         foreach ($records as $record) {
 
-            $content = file_rewrite_pluginfile_urls($record->submission, 'pluginfile.php',
-                    $context->id,'mod_collaborate', 'submission', $record->id);
+            $content = file_rewrite_pluginfile_urls($record->submission,
+                    'pluginfile.php', $context->id, 'mod_collaborate',
+                    'submission', $record->id);
 
             // Format submission.
             $formatoptions = new \stdClass;
@@ -176,34 +176,34 @@ class submissions {
         return $records;
     }
     /**
-    *  Get the column headers for the export file.
-    *
-    * @return String array.
-    */
-     public static function get_export_headers() {
+     *  Get the column headers for the export file.
+     *
+     * @return String array.
+     */
+    public static function get_export_headers() {
         return [
             get_string('id', 'mod_collaborate'),
             get_string('firstname', 'core'),
             get_string('lastname', 'core'),
-            get_string('submission','mod_collaborate'),
-            get_string('grade',  'core')];
-
+            get_string('submission', 'mod_collaborate'),
+            get_string('grade', 'core')
+        ];
     }
-   /**
-    *  Export all submissions of all Collaborate instances.
-    *
-    * @return none.
-    */
+    /**
+     *  Export all submissions of all Collaborate instances.
+     *
+     * @return none.
+     */
     public static function export_all_submissions() {
             global $DB;
 
         // Get the all Collaborate instances.
 
          $sql = "SELECT s.id, u.firstname, u.lastname, s.submission,  s.grade,
-                        c.id AS cid, c.course
-                  FROM {collaborate_submissions} AS s
-                  JOIN {collaborate} AS c ON s.collaborateid = c.id
-                  JOIN {user} AS u ON s.userid = u.id
+                        c.id cid, c.course
+                  FROM {collaborate_submissions} s
+                  JOIN {collaborate} c ON s.collaborateid = c.id
+                  JOIN {user} u ON s.userid = u.id
                   WHERE u.id <> 0";
 
         $records = $DB->get_records_sql($sql);
@@ -227,8 +227,9 @@ class submissions {
             $data['lastname'] = $record->lastname;
 
             // Process media files (for printing).
-            $content = \file_rewrite_pluginfile_urls($record->submission, 'pluginfile.php',
-                    $context->id,'mod_collaborate', 'submission', $record->id);
+            $content = \file_rewrite_pluginfile_urls($record->submission,
+                    'pluginfile.php', $context->id, 'mod_collaborate',
+                    'submission', $record->id);
 
             // Format submission.
             $formatoptions = new \stdClass;
@@ -243,10 +244,10 @@ class submissions {
 
         // Export the submissions to a pdf file.
         $fields = self::get_export_headers();
-        $download_submissions = new \ArrayObject($submissions);
-        $iterator = $download_submissions->getIterator();
+        $downloadsubmissions = new \ArrayObject($submissions);
+        $iterator = $downloadsubmissions->getIterator();
         $dataformat = 'pdf';
         $filename = clean_filename('export_submissions_' . time());
         $exportfile = dataformat::write_data($filename, $dataformat, $fields, $iterator);
-   }
+    }
 }
